@@ -1,0 +1,96 @@
+@font-face {
+  font-family: "Capsmall";
+  src: url("/font/Capsmall.ttf") format("truetype");
+}
+:root {
+  --stripe-size: 100px;
+  --yellow: #ffcc01ff;
+  --color2: #1e1e1e;
+  --duration: 2s;
+}
+
+.stripe {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 100px);
+  flex-direction: column;
+}
+.stripe_inner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-family: "Capsmall";
+  color: rgba(255, 255, 255, 0);
+  background: repeating-linear-gradient(45deg, var(--yellow) 25%, var(--yellow) 50%, var(--color2) 50%, var(--color2) 75%);
+  background-size: var(--stripe-size) var(--stripe-size);
+  background-clip: text;
+  animation: stripeBackgroundPosition var(--duration) linear infinite;
+}
+.stripe_inner h1 {
+  font-size: 10rem;
+}
+.stripe::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% + var(--stripe-size));
+  height: 100%;
+  background: repeating-linear-gradient(45deg, var(--color2) 25%, var(--color2) 50%, var(--yellow) 50%, var(--yellow) 75%);
+  background-size: var(--stripe-size) var(--stripe-size);
+  animation: stripeTransform var(--duration) linear infinite;
+}
+.stripe::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.work {
+  text-align: center;
+  font-family: "Capsmall";
+  background-color: transparent;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  z-index: 9;
+}
+.work h2 {
+  font-size: 5em;
+  color: #fff;
+}
+
+@keyframes stripeTransform {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(var(--stripe-size) * -1));
+  }
+}
+@keyframes stripeBackgroundPosition {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: calc(var(--stripe-size) * -1) 0;
+  }
+}
+@media (max-width: 821px) {
+  .stripe_inner h1 {
+    font-size: 6rem;
+  }
+  .work h2 {
+    font-size: 4rem;
+  }
+}
+
+/*# sourceMappingURL=backgroundhero.css.map */

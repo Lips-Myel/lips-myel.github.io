@@ -1,0 +1,453 @@
+
+body{
+    box-sizing: border-box;
+    background-color: black;
+    text-align: center;
+    text-decoration: none;
+    font-family: sans-serif;
+    color: gold;
+    text-transform: capitalize;
+    margin: 3%;
+
+    
+}
+h1{
+    font-size: 3em ;
+    letter-spacing: 2rem;
+    transform: translatey(0px);
+    font-family: 'Pokemon Solid', sans-serif;                                                                    
+    font-family: 'Pokemon Solid', sans-serif;
+    text-shadow: 10px 10px 20px blue;
+    opacity: 0;
+    animation: header 2s 1s infinite;
+    }
+    
+    @keyframes header {
+        0% {
+          
+         
+          opacity: .05;
+        }
+      
+       
+        50% {
+           
+            opacity: 0.5;
+        }
+      
+       
+        100% {
+          
+          opacity: 1;
+        }
+    } 
+
+@keyframes float {
+    0% {
+      box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+      transform: translatey(0px);
+    }
+    50% {
+      box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+      transform: translatey(-20px);
+    }
+    100% {
+      box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+      transform: translatey(0px);
+    }
+  }
+
+#pokemonsdetail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pokeball{
+  width: 32px;
+  }
+#pokeimg{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    margin: 3% auto;
+    width: 30rem;
+    height: 30rem;
+    background:black;
+    border-radius: 100%;
+    transition: 1s box-shadow;
+  }
+  
+  #pokeimg:hover{
+    cursor: url('/img/64px-Poké_Ball_icon.png'), auto;
+  }
+  
+  #pokeimg {
+    box-shadow: 0 5px 35px 0px rgba(0,0,0,.1);
+  }
+  
+  #pokeimg:before, #pokeimg:after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 30rem;
+    height: 30rem;
+    background: red;
+    border-radius: 100%;
+    z-index: -1;
+    animation: 1s clockwise infinite;
+  }
+  
+  #pokeimg:after {
+    background: white;
+    animation: 2s counterclockwise infinite;
+  }
+  
+  @keyframes clockwise {
+    0% {
+      top: -5px;
+      left: 0;
+    }
+    12% {
+      top: -2px;
+      left: 2px;
+    }
+    25% {
+      top: 0;
+      left: 5px;    
+    }
+    37% {
+      top: 2px;
+      left: 2px;
+    }
+    50% {
+      top: 5px;
+      left: 0;    
+    }
+    62% {
+      top: 2px;
+      left: -2px;
+    }
+    75% {
+      top: 0;
+      left: -5px;
+    }
+    87% {
+      top: -2px;
+      left: -2px;
+    }
+    100% {
+      top: -5px;
+      left: 0;    
+    }
+  }
+  
+  @keyframes counterclockwise {
+    0% {
+      top: -5px;
+      right: 0;
+    }
+    12% {
+      top: -2px;
+      right: 2px;
+    }
+    25% {
+      top: 0;
+      right: 5px;    
+    }
+    37% {
+      top: 2px;
+      right: 2px;
+    }
+    50% {
+      top: 5px;
+      right: 0;    
+    }
+    62% {
+      top: 2px;
+      right: -2px;
+    }
+    75% {
+      top: 0;
+      right: -5px;
+    }
+    87% {
+      top: -2px;
+      right: -2px;
+    }
+    100% {
+      top: -5px;
+      right: 0;    
+    }
+  }
+#pokeimg>img{
+    min-width: 150px;
+    
+    
+}
+img{
+  animation: float 6s ease-in-out infinite;
+}
+
+#button{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.droite, .gauche, .back{
+    text-decoration: none;
+    border: 3px solid white;
+    border-radius: 100%;
+    color: white;
+    background-color: black;
+    font-size: 2em;
+    padding: 5%;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    transition: 1s box-shadow;
+}
+.droite, .gauche, .back::after{
+  text-decoration: none;
+}
+.droite , .gauche{
+padding: 1%;
+width : 60px;
+height: 60px;
+
+
+
+}
+.droite:hover, .gauche:hover, .back:hover {
+    color: red;
+    border: 3px solid red;
+    box-shadow: 0 5px 35px 0px rgba(0,0,0,.1);
+  }
+
+#poketype{
+    margin-top: 3%;
+    margin-bottom: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+.type{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:  100%;
+    padding: 3%;
+    width: 7rem;
+    height: 7rem;
+    margin-bottom: 3%;
+    font-family: sans-serif;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 5px;
+    font-size: 2rem;
+
+}
+#info{
+  width: 87%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(40, 39, 39) ;
+  border-radius: 2rem;
+  padding: 5%;
+  padding-top : 10%;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+#pokestat{
+  margin-bottom: 3%;
+    width: 100%;
+    display:inline-flex;
+    float: left;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    overflow: hidden;
+    
+    
+    
+}
+#stats{
+  -webkit-background-clip : text; /* Pour la compatibilité avec les navigateurs WebKit */
+    color: transparent;
+    background-clip: text;
+  letter-spacing: 3px;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+#poketaille{
+  width: 80%;
+  margin: 0, 2%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  font-size: 150%;
+  letter-spacing: 3px;
+  font-weight: bold;
+  text-align:center;
+}
+#pokepoids,#poketail{
+  background-color: #000000;
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3rem;
+}
+.taille,.poids{
+  
+  -webkit-background-clip : text; /* Pour la compatibilité avec les navigateurs WebKit */
+  color: transparent;
+  background-clip: text;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+
+
+}
+
+h4{
+  -webkit-background-clip : text; /* Pour la compatibilité avec les navigateurs WebKit */
+    color: transparent;
+    background-clip: text;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    width: auto;
+
+  
+}
+.stats{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid transparent;
+    border-image-slice: -1;
+    border-image-repeat:round;
+    border-radius: 3rem;
+    background-color: #000000;
+    width: 65%;
+    height: 2rem;
+}
+.bar {
+    
+    position: relative;
+    height:1.5em;
+    border-radius: 2em;
+    background: #6a6a6a;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
+    animation: fill 10s ease-in-out , colors 10s infinite ;
+}
+
+#button{
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  justify-content: space-around;
+}
+
+
+  
+  
+  
+  @keyframes fill {
+    0%   { width: 65%; }
+    33%  { width: 15%;}
+    66%  { width: 45%;}
+    100% { width: var('.stats'); }
+  }
+  
+  
+
+  
+  @keyframes colors {
+    0% { background-color:var() }
+    50% { background-color: var()}
+    100% { background-color: var()}}
+
+    .buttonludo{
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      border: none;
+      position: fixed;
+      bottom: 1%;
+      right: 2%;
+      background-color: transparent;
+      width: fit-content;
+      box-shadow: none;
+      
+    }
+    .buttonludo:hover{
+      scale: 110%;
+      animation: float 0s ease-in-out infinite;
+      cursor: pointer;
+    }
+    #ludo{
+      width: 70px;
+    }
+
+
+/*Pour tous les appareils équipés d'écrans et dont la taille est inférieure à 780px*/
+@media screen and (max-width: 910px){
+  h1{
+    font-size: 150% ;
+  letter-spacing: 0.5em;
+  }
+  #pokeimg{
+    width: 15rem;
+    height: 15rem;
+
+  }
+  #pokeimg:before, #pokeimg:after{
+    width: 15rem;
+    height: 15rem;
+  }
+  #pokeimg>img{
+    min-width: 95px;
+  }
+  .pokeball{
+    width: 32px;
+  }
+  .type{
+    font-size: 1rem;
+  }
+  #poketaille{
+    width: 120%;
+    padding: O;
+    font-size: 110%;
+  }
+}
+@media screen and (max-width: 450px){
+  #poketaille{
+    width: 120%;
+    padding: O;
+    font-size: 70%;
+    letter-spacing: 1px;
+  }
+  h4{
+    font-size: 95%;
+  }
+  #stats{
+    font-size: 120%;
+  }
+
+
+}

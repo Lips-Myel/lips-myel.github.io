@@ -1,0 +1,504 @@
+:root {
+    /* Définition des variables globales et des propriétés de base */
+    background-color: black; /* Couleur de fond globale */
+    color: #00ff00; /* Couleur du texte globale */
+    font-family: 'Montserrat', sans-serif; /* Police de caractères globale, ajout de sans-serif comme police de secours */
+    min-height: 100vh; /* Hauteur minimale de la fenêtre */
+}
+
+nav {
+    /* Styles pour la navigation */
+    width: 100vw; /* Largeur de la navigation */
+    height: 80px; /* Hauteur de la navigation */
+    margin: 0; /* Pas de marge */
+    top: 0; /* Positionnement en haut */
+    left: 0; /* Positionnement à gauche */
+    position: fixed; /* Positionnement fixe */
+    display: flex; /* Utilisation de Flexbox */
+    align-items: center; /* Alignement vertical au centre */
+    justify-content: center; /* Alignement horizontal au centre */
+    flex-direction: column; /* Disposition des enfants en colonne */
+    background-color: black; /* Couleur de fond noire */
+    z-index: 999; /* Placement au-dessus des autres éléments */
+    text-align: center; /* Alignement du texte au centre */
+}
+
+.seperator-wrapper {
+    /* Wrapper pour le séparateur */
+    width: 100vw; /* Largeur du wrapper */
+    margin: 0; /* Pas de marge */
+}
+
+.seperator {
+    /* Styles pour le séparateur */
+    width: 100vw; /* Largeur du séparateur */
+    height: 5px; /* Hauteur du séparateur */
+    animation: rotate 3s infinite linear; /* Animation de rotation */
+    -webkit-animation: rotate 3s infinite linear; /* Préfixe WebKit pour la compatibilité */
+}
+
+@-webkit-keyframes rotate {
+    from {
+        background-position: -100vw; /* Position de départ de l'animation */
+    }
+    to {
+        background-position: 0px; /* Position de fin de l'animation */
+    }
+}
+
+@keyframes rotate {
+    from {
+        background-position: -100vw; /* Position de départ de l'animation */
+    }
+    to {
+        background-position: 0px; /* Position de fin de l'animation */
+    }
+}
+
+.gradient {
+    /* Définition des dégradés */
+    background: white; /* Couleur de fond pour les anciens navigateurs */
+    background: -moz-linear-gradient(left, #ff0000 0%, #fb0094 6.25%, #0000ff 12.5%, #00ff00 25%, #ffff00 37.5%, #ff0000 50%, #fb0094 56.25%, #0000ff 62.5%, #00ff00 75%, #ffff00 87.5%, #ff0000 100%); /* Firefox 3.6+ */
+    background: -webkit-linear-gradient(left, #ff0000 0%, #fb0094 6.25%, #0000ff 12.5%, #00ff00 25%, #ffff00 37.5%, #ff0000 50%, #fb0094 56.25%, #0000ff 62.5%, #00ff00 75%, #ffff00 87.5%, #ff0000 100%); /* Chrome 10+, Safari 5.1+ */
+    background: -o-linear-gradient(left, #ff0000 0%, #fb0094 6.25%, #0000ff 12.5%, #00ff00 25%, #ffff00 37.5%, #ff0000 50%, #fb0094 56.25%, #0000ff 62.5%, #00ff00 75%, #ffff00 87.5%, #ff0000 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, #ff0000 0%, #fb0094 6.25%, #0000ff 12.5%, #00ff00 25%, #ffff00 37.5%, #ff0000 50%, #fb0094 56.25%, #0000ff 62.5%, #00ff00 75%, #ffff00 87.5%, #ff0000 100%); /* IE10+ */
+    background: linear-gradient(to right, #ff0000 0%, #fb0094 6.25%, #0000ff 12.5%, #00ff00 25%, #ffff00 37.5%, #ff0000 50%, #fb0094 56.25%, #0000ff 62.5%, #00ff00 75%, #ffff00 87.5%, #ff0000 100%); /* W3C standard */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#30ff90', endColorstr='#30ff90', GradientType=1); /* IE6-9 */
+}
+
+h1 {
+    /* Styles pour les titres h1 */
+    text-align: center; /* Alignement du texte au centre */
+    font-size: 1.8rem; /* Taille de la police */
+    z-index: 1000; /* Placement au-dessus des autres éléments */
+}
+
+h2 {
+    /* Styles pour les titres h2 */
+    font-size: 18px; /* Taille de la police */
+}
+
+h3 {
+    /* Styles pour les titres h3 */
+    font-size: 15px; /* Taille de la police */
+}
+
+body {
+    /* Styles pour le corps de la page */
+    display: flex; /* Utilisation de Flexbox */
+    align-items: center; /* Alignement vertical au centre */
+    justify-content: center; /* Alignement horizontal au centre */
+    flex-direction: column; /* Disposition des enfants en colonne */
+}
+
+main {
+    /* Styles pour le contenu principal */
+    margin-top: 100px; /* Marge en haut */
+    display: flex; /* Utilisation de Flexbox */
+    justify-content: space-evenly; /* Distribution égale des espaces */
+    align-items: baseline; /* Alignement des éléments de base */
+    flex-wrap: wrap; /* Enroulement des éléments */
+    margin-bottom: 80px; /* Marge en bas */
+    gap: 25px; /* Espace entre les éléments */
+}
+
+section {
+    /* Styles pour les sections */
+    width: 320px; /* Largeur des sections */
+    margin-bottom: 20px; /* Marge en bas */
+    display: flex; /* Utilisation de Flexbox */
+    align-items: flex-start; /* Alignement vertical en haut */
+    justify-content: center; /* Alignement horizontal au centre */
+}
+
+.carte {
+    /* Styles pour les cartes */
+    width: 320px; /* Largeur des cartes */
+    background: linear-gradient(0deg, #000, #272727); /* Dégradé de fond */
+    background-size: cover; /* Taille de fond */
+    color: white; /* Couleur du texte */
+    height: auto; /* Hauteur automatique */
+    position: relative; /* Positionnement relatif */
+    margin: 50px auto 0; /* Marge autour des cartes */
+}
+
+.carte::before,
+.carte::after {
+    /* Styles pour les pseudo-éléments des cartes */
+    content: ''; /* Contenu vide */
+    position: absolute; /* Positionnement absolu */
+    left: -2px; /* Positionnement à gauche */
+    top: -2px; /* Positionnement en haut */
+    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000); /* Dégradé de fond */
+    background-size: 400%; /* Taille de fond */
+    width: calc(100% + 4px); /* Largeur ajustée */
+    height: calc(100% + 4px); /* Hauteur ajustée */
+    z-index: -1; /* Placement derrière les autres éléments */
+    animation: steam 20s linear infinite; /* Animation de vapeur */
+}
+
+@keyframes steam {
+    /* Définition de l'animation de vapeur */
+    0% {
+        background-position: 0 0; /* Position de départ */
+    }
+    50% {
+        background-position: 400% 0; /* Position intermédiaire */
+    }
+    100% {
+        background-position: 0 0; /* Position de fin */
+    }
+}
+
+.carte::after {
+    filter: blur(50px); /* Effet de flou pour le pseudo-élément après */
+}
+
+.user {
+    /* Styles pour les utilisateurs */
+    display: flex; /* Utilisation de Flexbox */
+    justify-content: space-between; /* Distribution égale des espaces */
+    align-items: center; /* Alignement vertical au centre */
+    width: 90%; /* Largeur des utilisateurs */
+}
+
+summary {
+    /* Styles pour le résumé */
+    display: flex; /* Utilisation de Flexbox */
+    justify-content: center; /* Alignement horizontal au centre */
+    align-items: center; /* Alignement vertical au centre */
+    flex-direction: column; /* Disposition des enfants en colonne */
+    background: linear-gradient(0deg, #000, #272727); /* Dégradé de fond */
+    color: #00ff00; /* Couleur du texte */
+    cursor: pointer; /* Curseur en forme de pointeur */
+    height: 52px; /* Hauteur du résumé */
+    width: 320px; /* Largeur du résumé, corrigé de "320" à "320px" */
+}
+
+.glass {
+    /* Styles pour l'effet verre */
+    margin-top: 51.5px; /* Marge en haut */
+    position: absolute; /* Positionnement absolu */
+    width: 324px; /* Largeur */
+    height: 56px; /* Hauteur */
+    z-index: 100; /* Placement au-dessus des autres éléments */
+    background-color: none; /* Couleur de fond nulle */
+    cursor: pointer; /* Curseur en forme de pointeur */
+}
+
+.glass:hover {
+    /* Styles au survol pour l'effet verre */
+    width: 314px; /* Largeur ajustée */
+    background: rgba(255, 255, 255, 0.1); /* Fond transparent */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Ombre */
+    backdrop-filter: blur(1px); /* Effet de flou */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Bordure */
+    height: 46px; /* Hauteur ajustée */
+}
+
+::marker {
+    /* Styles pour les marqueurs de liste */
+    color: transparent; /* Couleur transparente */
+}
+
+.fa-solid::before {
+    font-size: 25px; /* Taille de la police pour les icônes solides */
+}
+
+.fa-user-astronaut {
+    color: #0000ff; /* Couleur pour l'icône de l'astronaute */
+}
+
+.fa-user-astronaut::before {
+    font-size: 30px; /* Taille de la police pour l'icône de l'astronaute */
+}
+
+.fa-address-book {
+    color: #ffff00; /* Couleur pour l'icône du carnet d'adresses */
+    transform: scaleX(-1); /* Inversion horizontale */
+}
+
+.fa-address-book::before {
+    font-size: 28px; /* Taille de la police pour l'icône du carnet d'adresses */
+}
+
+.fa-user-pen:hover,
+.fa-user-minus:hover {
+    /* Styles au survol pour les icônes de modification et de suppression */
+    scale: 125%; /* Agrandissement */
+    cursor: pointer; /* Curseur en forme de pointeur */
+}
+
+.fa-user-pen {
+    color: #ffff00; /* Couleur pour l'icône de modification */
+    z-index: 1; /* Placement au-dessus des autres éléments */
+}
+
+.fa-user-minus {
+    color: #ff0000; /* Couleur pour l'icône de suppression */
+    z-index: 1; /* Placement au-dessus des autres éléments */
+}
+
+.info {
+    /* Styles pour les informations */
+    width: 100%; /* Largeur */
+    line-height: 25px; /* Hauteur de ligne */
+    display: flex; /* Utilisation de Flexbox */
+    align-items: center; /* Alignement vertical au centre */
+    justify-content: center; /* Alignement horizontal au centre */
+    flex-direction: column; /* Disposition des enfants en colonne */
+}
+
+.name {
+    /* Styles pour les noms */
+    display: flex; /* Utilisation de Flexbox */
+    justify-content: center; /* Alignement horizontal au centre */
+    align-items: flex-start; /* Alignement vertical en haut */
+    width: 90%; /* Largeur */
+    gap: 10px; /* Espace entre les éléments */
+    margin-top: 2px; /* Marge en haut */
+    text-align: center; /* Alignement du texte au centre */
+}
+
+.prenom {
+    font-weight: 400; /* Poids de la police */
+}
+
+h2,
+h3 {
+    /* Styles pour les titres h2 et h3 */
+    margin: 0; /* Pas de marge */
+}
+
+.contact {
+    padding: 10px; /* Padding pour les contacts */
+}
+
+.edit {
+    /* Styles pour l'édition */
+    display: flex; /* Utilisation de Flexbox */
+    justify-content: space-evenly; /* Distribution égale des espaces */
+    align-items: last baseline; /* Alignement à la dernière ligne de base */
+}
+
+.buttons {
+    /* Styles pour les boutons */
+    position: fixed; /* Positionnement fixe */
+    bottom: 0; /* Positionnement en bas */
+    left: 0; /* Positionnement à gauche */
+    display: flex; /* Utilisation de Flexbox */
+    justify-content: space-evenly; /* Distribution égale des espaces */
+    align-items: center; /* Alignement vertical au centre */
+    margin-top: 25px; /* Marge en haut */
+    width: 100vw; /* Largeur */
+}
+.containerAddExport{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+}
+
+.buttonAdd , .buttonExport {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    pointer-events: auto;
+    border: 2px solid #00ff00;
+    border-radius: 100%;
+    background: #00ff0039;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    color: white;
+    width: 45px;
+    height: 45px;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.buttonExport{
+    background: #fb009439;
+    border: 2px solid #fb0094;
+}
+
+.buttonAdd:hover , .buttonExport:hover {
+    transform: scale(1.25);
+}
+
+.fa-file-arrow-down {
+    margin: 0 0 17px 0;
+    pointer-events: none;
+}
+
+.fa-user-plus{
+    margin: 0 0 20px 3px;
+    pointer-events: none;
+}
+
+.buttons:hover {
+    /* Styles au survol pour les boutons */
+    scale: 125%; /* Agrandissement */
+}
+
+.modal, .modalEdit {
+    /* Styles pour les modals */
+    width: 320px; /* Largeur */
+    height: 485px; /* Hauteur */
+    background: linear-gradient(0deg, #000, #272727); /* Dégradé de fond */
+    background-size: cover; /* Taille de fond */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 15px;
+    padding: 10px; /* Padding */
+}
+
+form {
+    /* Styles pour les formulaires */
+    margin-left: 10px; /* Marge à gauche */
+    width: 90%; /* Largeur */
+    display: flex; /* Utilisation de Flexbox */
+    flex-direction: column; /* Disposition des enfants en colonne */
+    height: 80%; /* Hauteur */
+    gap: 10px; /* Espace entre les éléments */
+}
+
+#bug {
+    /* Styles pour l'élément avec l'id "bug" */
+    display: none; /* Non affiché */
+}
+
+.close-X{
+    margin-left: 88%;
+    padding: 1px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    background: linear-gradient(0deg, #000, #272727); /* Dégradé de fond */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-X:hover{
+    scale: 110%;
+    animation: float 0s ease-in-out infinite;
+    cursor: pointer;
+}
+
+.annuler{
+    width: 100%;
+    height: 50px;
+    padding: 2px;
+    text-align: center;
+    background: linear-gradient(0deg, #000, #272727); /* Dégradé de fond */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.annuler:hover{
+    scale: 110%;
+    animation: float 0s ease-in-out infinite;
+    cursor: pointer;
+}
+
+#ajouter{
+    margin-top: 10px;
+    padding: 2px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    background: linear-gradient(0deg, #000, #272727); /* Dégradé de fond */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#ajouter:hover{
+    scale: 110%;
+    animation: float 0s ease-in-out infinite;
+    cursor: pointer;
+}
+
+#editer{
+    margin-top: 10px;
+    padding: 2px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    background: linear-gradient(0deg, #000, #272727); /* Dégradé de fond */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffff00;
+    border: 1px solid #ffff00;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#editer:hover{
+    scale: 110%;
+    animation: float 0s ease-in-out infinite;
+    cursor: pointer;
+}
+
+.feedback{
+    position: fixed;
+    top: 50vh;
+    left: calc(50vw - 170px);
+    font-weight: bold;
+    width: 340px;
+    height: 50px;
+    text-align: center;
+    background: linear-gradient(0deg, #000, #272727); /* Dégradé de fond */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff0000;
+    border: 3px solid #ff0000;
+}
+
+.buttonludo {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    border: none;
+    position: fixed;
+    bottom: 1%;
+    right: 2%;
+    background-color: transparent;
+    width: fit-content;
+    z-index: 15;
+  
+  }
+  
+  .buttonludo:hover {
+    scale: 110%;
+    animation: float 0s ease-in-out infinite;
+    cursor: pointer;
+  }
+  
+  #ludo {
+    width: 100px;
+  }

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/fdd82b6672.js" crossorigin="anonymous" defer></script>
+    <script src="./js/script.js" defer></script>
+    <title>Contact</title>
+</head>
+
+<body>
+
+    <nav>
+        <h1>Carnet d'adresse</h1>
+        <section class="seperator-wrapper">
+            <div class="seperator gradient"></div>
+        </section>
+    </nav>
+
+    <dialog class="modal">
+        <form id="formulaire" name="add" method="GET">
+            <label for="bug"></label><input type="text" id="bug" placeholder=" " name="ID">
+            <button id="closeX" type="button" class="close-X">✖</button>
+            <label for="Prenom">Prénom</label><input type="text" id="Prenom" placeholder="Prénom" name="Prenom">
+            <label for="Nom">Nom</label><input type="text" id="Nom" placeholder="Nom" name="Nom">
+            <label for="Port">Port</label><input type="tel" id="Port" type="tel" placeholder="Port" name="Port">
+            <label for="Fixe">Fixe</label><input type="tel" id="Fixe" type="tel" placeholder="Fixe" name="Fixe">
+            <label for="Email">Email</label><input id="email" type="email" placeholder="email@mail.com" name="Email">
+            <label for="Entreprise">Entreprise</label><input type="text" id="Entreprise" placeholder="Entreprise" name="Entreprise">
+            <input class="ajouter" id="ajouter" type="button" value="Ajouter">
+            <input class="annuler" type="button" value="Annuler">
+        </form>
+
+    </dialog>
+
+    <dialog class="modalEdit">
+        <form id="edition" method="GET"  name="edition">
+            <label for="bug"></label><input type="text" id="bug" placeholder=" " name="ID">
+            <button id="closeEditX" type="button" class="close-X">✖</button>
+            <label for="Prenom">Prénom</label><input type="text" id="editPrenom" value="" name="Prenom">
+            <label for="Nom">Nom</label><input type="text" id="editNom" value="" name="Nom">
+            <label for="Port">Port</label><input type="tel" id="editPort" type="tel"  value=""name="Port">
+            <label for="Fixe">Fixe</label><input type="tel" id="editFixe" type="tel" value="" name="Fixe">
+            <label for="Email">Email</label><input id="editEmail" type="email" value="" name="Email">
+            <label for="Entreprise">Entreprise</label><input type="text" id="editEntreprise" value="" name="Entreprise">
+            <input class="ajouter" id="editer" type="button" value="Éditer">
+            <input class="annuler" id="annulEdit" type="button" value="Annuler">
+        </form>
+
+    </dialog>
+    <a class="buttonludo" href="../index.html"> <img id="ludo" src="./img/ludo.png" alt="logo"></a>
+
+
+
+
+
+
+</body>
+
+</html>
