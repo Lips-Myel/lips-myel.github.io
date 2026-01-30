@@ -3,190 +3,463 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ludovic Picaud - Développeur Full Stack</title>
-    <link rel="icon" type="png" href="./img/logotrojan.png" />
-    <link rel="stylesheet" href="./style/style.css">
-    <link rel="stylesheet" href="./style/backgroundhero.css">
+    <meta name="description" content="Lips Création - Conception & Développement d'Applications – Développement Full-Stack. Créateur d'expériences digitales audacieuses et performantes.">
+
+    <title>Lips Création - Conception & Développement d’Applications – Développement Full-Stack</title>
+    <link rel="icon" type="png" href="./img/iconlips.png" />
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700;800;900&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Open Graph pour les réseaux sociaux -->
+    <meta property="og:title" content="Lips Création - Conception & Développement d'Applications">
+    <meta property="og:description" content="Développement Full-Stack - Créateur d'expériences digitales audacieuses et performantes">
+    <meta property="og:image" content="https://lips-creation.dev/img/lips.png">
+    <meta property="og:url" content="https://lips-creation.dev">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lips Création - Développement Full-Stack">
+    <meta name="twitter:description" content="Conception & Développement d'Applications – Expériences digitales audacieuses">
+    <meta name="twitter:image" content="https://lips-creation.dev/img/lips.png">
+
+    <!-- Mots-clés -->
+    <meta name="keywords" content="développeur Full-Stack, PHP, Symfony, React, JavaScript, conception application, portfolio développeur, alternance développeur, Bretagne, Saint-Brieuc, Lips Création">
+
+    <!-- Auteur -->
+    <meta name="author" content="Lips Création">
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-    <span class="title">
-        <a href="/"><h1><strong>Ludovic Picaud</strong></h1></a>
-    </span>
-    <span class="title"><a href="/"><h2><strong>Développeur<br>Full-Stack</strong></h2></a></span>
-    <nav class="jmenu">
-        <input type="checkbox" id="menu-btn" class="jm-menu-btn">
-        <label for="menu-btn" class="jm-menu-btn jm-icon-menu"></label>
-        <ul class="jm-collapse">
-            <li><a href="/">Accueil</a></li>
-            <li><a href="./projet.html">Projets</a></li>
-            <li><a href="./contact.html">Contact</a></li>
-        </ul>
-    </nav>
+    <div class="noise-overlay"></div>
     
-    <!-- Élément invisible pour équilibrer -->
-    
-</header>
-
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="stripe"><div class="stripe_inner"><h1><strong>Ludovic Picaud</strong></h1></div><div class="work"><h2><strong>Développeur Full Stack</strong></h2></div></div>        <button class="buttonhero"><a href="./projet.html">Voir Projets</a></button>
-    </section>
-
-    <!-- About Section -->
-    <section class="about">
-        <div class="about-container">
-            <img src="./img/trojan.png" alt="Ludovic Picaud" class="avatar">
-            <div class="about-text">
-                <h3>À propos de moi</h3>
-                <p>
-                Bienvenue dans mon univers où le code rencontre l’intensité du rugby et où la passion pour la technologie coexiste avec une collection précieuse de vinyles Trojan Records.<br><br>
-
-                <strong>Je suis développeur web passionné</strong>, ancien rugbyman de 15 ans de terrain et collectionneur dévoué de l’héritage reggae jamaïcain.<br><br>
-
-                Le rugby m’a forgé une résilience à toute épreuve et m’a transmis des valeurs que je porte chaque jour dans mon travail : respect, humilité, rigueur, esprit collectif, combativité et goût de l’effort. Pendant sept ans, j’ai transmis cette passion à des jeunes en clubs, écoles et Instituts Médico-Éducatifs, de la Bretagne à la Martinique, auprès de publics très divers, y compris en situation de handicap. Cette expérience m’a appris la patience, l’adaptabilité et l’acceptation des différences – des qualités qui me servent autant sur un terrain que derrière un écran.<br><br>
-
-                Côté technique, j’aime construire des solutions solides et élégantes : applications full-stack avec Symfony et Doctrine, boutiques e-commerce sur PrestaShop, interfaces dynamiques en JavaScript vanilla ou React, consommation d’API externes (comme PokeAPI), gestion de bases MySQL, authentification sécurisée, architecture orientée objet, personnalisation poussée avec Webpack Encore ou CSS avancé, et même un service de messagerie temporaire disposable avec MyMail – génération d’adresses éphémères et inbox en temps réel pour protéger la vie privée. Chaque projet est pour moi l’occasion de transformer une idée en réalité fonctionnelle, robuste et agréable à utiliser.<br><br>
-
-                Explorez mon portfolio : chaque ligne de code raconte une histoire, chaque essai sur le terrain représente un défi surmonté, et chaque vinyle Trojan capture une vibration intemporelle. Ici, la programmation devient une danse stratégique, le rugby une leçon de persévérance, et la musique une source d’inspiration infinie.<br><br>
-
-                Bienvenue dans mon monde.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects">
-        <h3>Projets Récents</h3>
-        <div class="project-grid">
-            <div class="project-card">
-                <h4>CHŒUR MOSAÏQUE MUSICALE MALOUINE</h4>
-                <p>PHP, SYMFONY, TWIG</p>
-                <p>Site de gestion pour association chorale développé avec Symfony.
-                    Gestion complète des membres, concerts et œuvres musicales avec base MySQL,
-                    authentification sécurisée et architecture orientée objet utilisant Doctrine ORM et Webpack Encore.</p>
-                <button><a href="https://choeurmmm.fr/">Voir Projet</a></button>
-            </div>
-            <div class="project-card">
-                <h4>AU PAYS DES MERVEILLES BY UBEU</h4>
-                <p>PRESTASHOP</p>
-                <p>Refonte complète d'une boutique e-commerce sur PrestaShop.
-                    Configuration et installation en environnement local avant livraison client,
-                    personnalisation avancée avec CSS externe pour adapter le design aux besoins métier.</p>
-                <button><a href="https://ubeu.fr/">Voir Projet</a></button>
-            </div>
-            <div class="project-card">
-                <h4>CARNET D'ADRESSES</h4>
-                <p>HTML, CSS, JS</p>
-                <p>Application de gestion de contacts en JavaScript vanilla avec stockage LocalStorage.
-                    Interface interactive permettant l'ajout,
-                    modification et suppression de contacts avec système de modal,
-                    export JSON et validation de formulaires.</p>
-                <button><a href="./carnet_d_adresse/">Voir Projet</a></button>
-            </div>
-            <div class="project-card">
-                <h4>POKÉDEX</h4>
-                <p>HTML, CSS, JS</p>
-                Pokédex interactif des 151 Pokémon originaux consommant l'API PokeAPI.
-                Système de capture avec probabilités, gestion des versions shiny,
-                persistance des données avec LocalStorage et navigation dynamique entre fiches détaillées.</p>
-                <button><a href="./pokedex/">Voir Projet</a></button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Parcours Section -->
-     <section class="parcours">
-        <h3>Mon Parcours</h3>
-    <div class="timeline-container">
-        <div class="timeline">
-            <!-- CDA -->
-            <div class="step">
-                <div class="content">
-                    <h4>Concepteur Développeur d’Applications</h4>
-                    <p> Analyser les besoins et concevoir l’architecture d’une application sécurisée<br>
-                        Développer les interfaces utilisateur et la logique métier<br>
-                        Concevoir et gérer des bases de données et les accès aux données<br>
-                        Intégrer les composants applicatifs dans une architecture en couches<br>
-                        Tester, documenter et assurer la qualité du code<br>
-                        Préparer le déploiement et la mise en production de l’application</p>
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="img/lips.png" alt="Lips Creation Logo" class="logo-img">
+            </a>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="projets.html" class="nav-link">Projets</a></li>
+                    <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/lips-creation/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/Lips-Myel" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
                 </div>
-                <div class="month">2025</div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+                    <span class="toggle-icon"></span>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
             </div>
             
-            <!-- Dev Back -->
-            <div class="step">
-                <div class="content">
-                    <h4>Développeur Back-End</h4>
-                    <p> Créer une base de données<br>
-                        Développer les composants d’accès aux données<br>
-                        Développer la partie Back-end d’une application web ou web mobile sécurisée<br>
-                        Elaborer et mettre en oeuvre des composants dans une application de gestion de contenu ou e-commerce</p>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="hero-tag signature">✦ Cré★tion digitale</div>
+                        <h1 class="hero-title">
+                            <span class="title-name glitch" data-text="Lips Création">Lips Cré★tion</span>
+                        </h1>
+                        <h2 class="hero-subtitle">
+                            <span class="gradient-text">Conception & Développement d'Applications</span>
+                            <span class="subtitle-line">Développement Full-Stack</span>
+                        </h2>
+                        <p class="hero-description">
+                            Créateur d'expériences digitales. 
+                            Je transforme vos rêves en code, avec passion, créativité.
+                        </p>
+                        <div class="hero-cta">
+                            <a href="projets.html" class="btn btn-primary">
+                                <span class="btn-text">Mes créations</span>
+                                <span class="btn-icon">★</span>
+                            </a>
+                            <a href="contact.html" class="btn btn-outline">
+                                <span class="btn-text">Parlons-en</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual">
+                        <div class="visual-card">
+                            <div class="card-glossy"></div>
+                            <div class="card-content">
+                                <span class="code-art">&lt;/&gt;</span>
+                                <div class="code-lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="month">2024</div>
             </div>
+        </section>
 
-            <!-- Dev Front -->
-            <div class="step">
-                <div class="content">
-                    <h4>Développeur Front-End</h4>
-                    <p>
-                        Maquetter une application<br>
-                        Réaliser une interface utilisateur web statique et adaptable.<br>
-                        Développer une interface utilisateur web dynamique<br>
-                        Réaliser une interface utilisateur avec une solution de gestion de contenu ou e-commerce
-                    </p>
+        <section class="expertise">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-number">01.</span>
+                        Mes <span class="gradient-text">Expertises</span>
+                    </h2>
+                    <p class="section-subtitle signature">Le savoir-faire rencontre l'audace</p>
                 </div>
-                <div class="month">
-                    2023
-                </div>
-            </div>
+                
+                <div class="expertise-grid">
+                    <article class="expertise-card" data-number="01">
+                        <div class="card-shine"></div>
+                        <div class="card-icon">
+                            <span class="icon-emoji">🎨</span>
+                        </div>
+                        <h3 class="card-title">Analyser & Concevoir</h3>
+                        <p class="card-description">
+                            Architecture d'applications sécurisées avec une vision créative et structurée
+                        </p>
+                        <div class="card-accent"></div>
+                    </article>
 
-            <!-- Prépa Num -->
-            <div class="step">
-                <div class="content">
-                    <h4>Prépa Numériques</h4>
-                    <p>
-                        Découverte des fondamentaux du développement numérique <br>
-                        Compréhension des enjeux de la sécurité numérique <br>
-                        Exploration des métiers du numérique <br>
-                        Histoire du web
-                    </p>
-                </div>
-                <div class="month">2022</div>
-            </div>
+                    <article class="expertise-card" data-number="02">
+                        <div class="card-shine"></div>
+                        <div class="card-icon">
+                            <span class="icon-emoji">💻</span>
+                        </div>
+                        <h3 class="card-title">Développer</h3>
+                        <p class="card-description">
+                            Interfaces utilisateur sensuelles et logique métier solide comme du rock
+                        </p>
+                        <div class="card-accent"></div>
+                    </article>
 
-            <!-- Imprimeur -->
-            <div class="step">
-                <div class="content">
-                    <h4>Imprimeur</h4>
-                    <p>
-                        Créer et préparer les fichiers pour l'impression <br>
-                        Gérer et configurer les machines d'impression <br>
-                        Surveiller et assurer le contrôle qualité tout au long du processus <br>
-                        Finition et assemblage des produits imprimés
-                    </p>
+                    <article class="expertise-card" data-number="03">
+                        <div class="card-shine"></div>
+                        <div class="card-icon">
+                            <span class="icon-emoji">🗄️</span>
+                        </div>
+                        <h3 class="card-title">Gérer les Données</h3>
+                        <p class="card-description">
+                            Bases de données optimisées avec des accès rapides et sécurisés
+                        </p>
+                        <div class="card-accent"></div>
+                    </article>
+
+                    <article class="expertise-card" data-number="04">
+                        <div class="card-shine"></div>
+                        <div class="card-icon">
+                            <span class="icon-emoji">🔧</span>
+                        </div>
+                        <h3 class="card-title">Intégrer</h3>
+                        <p class="card-description">
+                            Composants applicatifs intégrés dans une architecture en couches
+                        </p>
+                        <div class="card-accent"></div>
+                    </article>
+
+                    <article class="expertise-card" data-number="05">
+                        <div class="card-shine"></div>
+                        <div class="card-icon">
+                            <span class="icon-emoji">✅</span>
+                        </div>
+                        <h3 class="card-title">Tester & Documenter</h3>
+                        <p class="card-description">
+                            Qualité irréprochable du code avec tests et documentation complète
+                        </p>
+                        <div class="card-accent"></div>
+                    </article>
+
+                    <article class="expertise-card" data-number="06">
+                        <div class="card-shine"></div>
+                        <div class="card-icon">
+                            <span class="icon-emoji">🚀</span>
+                        </div>
+                        <h3 class="card-title">Déployer</h3>
+                        <p class="card-description">
+                            Mise en production professionnelle avec déploiement maîtrisé
+                        </p>
+                        <div class="card-accent"></div>
+                    </article>
                 </div>
-                <div class="month">2010</div>
             </div>
-            
+        </section>
+
+        <section class="signature-section">
+            <div class="container">
+                <div class="signature-content">
+                    <div class="signature-visual">
+                        <div class="signature-circle"></div>
+                        <span class="signature-star">★</span>
+                    </div>
+                    <div class="signature-text">
+                        <h3 class="signature-title">Une signature unique</h3>
+                        <p class="signature-description">
+                            Chaque projet est une création originale, 
+                            <span class="gradient-text-signature">audacieuse</span> et 
+                            <span class="gradient-text-signature">mémorable</span>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-bg"></div>
+            <div class="container">
+                <div class="cta-content">
+                    <span class="cta-tag signature">✦ Ready to rock?</span>
+                    <h2 class="cta-title">Un projet en tête ?</h2>
+                    <p class="cta-subtitle">Créons quelque chose d'extraordinaire ensemble</p>
+                    <a href="contact.html" class="btn btn-large btn-primary">
+                        <span class="btn-text">Lançons le projet</span>
+                        <span class="btn-icon">★</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+                </section>
+
+        <!-- Recent Projects Section -->
+        <section class="recent-projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-number">02.</span>
+                        Projets <span class="gradient-text">Récents</span>
+                    </h2>
+                    <p class="section-subtitle signature">Du code qui parle, des projets qui marquent</p>
+                </div>
+                
+                <div class="recent-projects-grid">
+                    <article class="recent-project-card">
+                        <div class="card-shine"></div>
+                        <div class="project-header">
+                            <h4 class="project-name">CHŒUR MOSAÏQUE MUSICALE MALOUINE</h4>
+                            <div class="project-tech signature">PHP • SYMFONY • TWIG</div>
+                        </div>
+                        <p class="project-desc">
+                            Site de gestion pour association chorale développé avec Symfony.
+                            Gestion complète des membres, concerts et œuvres musicales avec base MySQL,
+                            authentification sécurisée et architecture orientée objet utilisant Doctrine ORM et Webpack Encore.
+                        </p>
+                        <a href="https://choeurmmm.fr/" target="_blank" class="project-btn">
+                            <span>Voir Projet</span>
+                            <span class="btn-arrow">→</span>
+                        </a>
+                    </article>
+
+                    <article class="recent-project-card">
+                        <div class="card-shine"></div>
+                        <div class="project-header">
+                            <h4 class="project-name">AU PAYS DES MERVEILLES BY UBEU</h4>
+                            <div class="project-tech signature">PRESTASHOP</div>
+                        </div>
+                        <p class="project-desc">
+                            Refonte complète d'une boutique e-commerce sur PrestaShop.
+                            Configuration et installation en environnement local avant livraison client,
+                            personnalisation avancée avec CSS externe pour adapter le design aux besoins métier.
+                        </p>
+                        <a href="https://ubeu.fr/" target="_blank" class="project-btn">
+                            <span>Voir Projet</span>
+                            <span class="btn-arrow">→</span>
+                        </a>
+                    </article>
+
+                    <article class="recent-project-card">
+                        <div class="card-shine"></div>
+                        <div class="project-header">
+                            <h4 class="project-name">CARNET D'ADRESSES</h4>
+                            <div class="project-tech signature">HTML • CSS • JS</div>
+                        </div>
+                        <p class="project-desc">
+                            Application de gestion de contacts en JavaScript vanilla avec stockage LocalStorage.
+                            Interface interactive permettant l'ajout, modification et suppression de contacts avec système de modal,
+                            export JSON et validation de formulaires.
+                        </p>
+                        <a href="./carnet_d_adresse/" class="project-btn">
+                            <span>Voir Projet</span>
+                            <span class="btn-arrow">→</span>
+                        </a>
+                    </article>
+
+                    <article class="recent-project-card">
+                        <div class="card-shine"></div>
+                        <div class="project-header">
+                            <h4 class="project-name">POKÉDEX</h4>
+                            <div class="project-tech signature">HTML • CSS • JS</div>
+                        </div>
+                        <p class="project-desc">
+                            Pokédex interactif des 151 Pokémon originaux consommant l'API PokeAPI.
+                            Système de capture avec probabilités, gestion des versions shiny,
+                            persistance des données avec LocalStorage et navigation dynamique entre fiches détaillées.
+                        </p>
+                        <a href="./pokedex/" class="project-btn">
+                            <span>Voir Projet</span>
+                            <span class="btn-arrow">→</span>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parcours Timeline Section -->
+        <section class="parcours-timeline">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-number">03.</span>
+                        Mon <span class="gradient-text">Parcours</span>
+                    </h2>
+                    <p class="section-subtitle signature">L'évolution d'une passion</p>
+                </div>
+
+                <div class="timeline-wrapper">
+                    <div class="timeline">
+                        <div class="timeline-step" data-year="2025">
+                            <div class="step-marker">
+                                <span class="marker-icon">★</span>
+                            </div>
+                            <div class="step-content">
+                                <div class="step-year signature">2025</div>
+                                <h4 class="step-title">Concepteur Développeur d'Applications</h4>
+                                <ul class="step-details">
+                                    <li>Analyser les besoins et concevoir l'architecture d'une application sécurisée</li>
+                                    <li>Développer les interfaces utilisateur et la logique métier</li>
+                                    <li>Concevoir et gérer des bases de données et les accès aux données</li>
+                                    <li>Intégrer les composants applicatifs dans une architecture en couches</li>
+                                    <li>Tester, documenter et assurer la qualité du code</li>
+                                    <li>Préparer le déploiement et la mise en production de l'application</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step" data-year="2024">
+                            <div class="step-marker">
+                                <span class="marker-icon">★</span>
+                            </div>
+                            <div class="step-content">
+                                <div class="step-year signature">2024</div>
+                                <h4 class="step-title">Développeur Back-End</h4>
+                                <ul class="step-details">
+                                    <li>Créer une base de données</li>
+                                    <li>Développer les composants d'accès aux données</li>
+                                    <li>Développer la partie Back-end d'une application web ou web mobile sécurisée</li>
+                                    <li>Elaborer et mettre en oeuvre des composants dans une application de gestion de contenu ou e-commerce</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step" data-year="2023">
+                            <div class="step-marker">
+                                <span class="marker-icon">★</span>
+                            </div>
+                            <div class="step-content">
+                                <div class="step-year signature">2023</div>
+                                <h4 class="step-title">Développeur Front-End</h4>
+                                <ul class="step-details">
+                                    <li>Maquetter une application</li>
+                                    <li>Réaliser une interface utilisateur web statique et adaptable</li>
+                                    <li>Développer une interface utilisateur web dynamique</li>
+                                    <li>Réaliser une interface utilisateur avec une solution de gestion de contenu ou e-commerce</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step" data-year="2022">
+                            <div class="step-marker">
+                                <span class="marker-icon">★</span>
+                            </div>
+                            <div class="step-content">
+                                <div class="step-year signature">2022</div>
+                                <h4 class="step-title">Prépa Numériques</h4>
+                                <ul class="step-details">
+                                    <li>Découverte des fondamentaux du développement numérique</li>
+                                    <li>Compréhension des enjeux de la sécurité numérique</li>
+                                    <li>Exploration des métiers du numérique</li>
+                                    <li>Histoire du web</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step" data-year="2010">
+                            <div class="step-marker">
+                                <span class="marker-icon">★</span>
+                            </div>
+                            <div class="step-content">
+                                <div class="step-year signature">2010</div>
+                                <h4 class="step-title">Imprimeur</h4>
+                                <ul class="step-details">
+                                    <li>Créer et préparer les fichiers pour l'impression</li>
+                                    <li>Gérer et configurer les machines d'impression</li>
+                                    <li>Surveiller et assurer le contrôle qualité tout au long du processus</li>
+                                    <li>Finition et assemblage des produits imprimés</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="img/lips.png" alt="Lips Creation" class="footer-logo">
+                <p class="footer-tagline signature">Cré★tion avec passion</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/lips-creation/" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/Lips-Myel" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <nav class="footer-nav">
+                <a href="index.html">Accueil</a>
+                <a href="projets.html">Projets</a>
+                <a href="a-propos.html">À propos</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="footer-info">
+                <p>&copy; 2026 lips-creation.dev</p>
+                <p class="footer-rights">Tous droits réservés</p>
             </div>
         </div>
-    </div>
-    </section>
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2025 Ludovic Picaud. All rights reserved.</p>
-        <!-- <div class="social-icons">
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
-        </div> -->
     </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
