@@ -173,6 +173,20 @@ body.dark-mode .nav-link {
     color: var(--primary);
 }
 
+/* Mobile Social Links - caché par défaut */
+.mobile-social-links {
+    display: none;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 2px solid var(--gray-border);
+}
+
+body.dark-mode .mobile-social-links {
+    border-color: #333;
+}
+
 /* Header Actions */
 .header-actions {
     display: flex;
@@ -1084,7 +1098,7 @@ body.dark-mode .step-content {
 
 
 /* ========================================
-   📁 PROJECTS PAGE - SHOWCASE WITH IFRAMES
+   📁 PROJECTS PAGE - SHOWCASE WITH IMG
    ======================================== */
 
 .page-hero {
@@ -1099,7 +1113,7 @@ body.dark-mode .step-content {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 600px;
+    width: 100vw;
     height: 600px;
     background: radial-gradient(circle, var(--shadow-color) 0%, transparent 70%);
     filter: blur(60px);
@@ -1197,37 +1211,41 @@ body.dark-mode .showcase-card {
 
 .showcase-preview {
     position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 40px var(--shadow-color);
+    border-radius: 0; /* Retire aussi le border-radius */
+    background-color: transparent;
+    overflow: visible; /* Important pour l'ombre drop-shadow */
+    /* Pas de box-shadow ici */
 }
 
-.iframe-container {
+.img-container {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
     width: 100%;
-    padding-top: 75%;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    overflow: hidden;
-    border-radius: 20px;
+    padding: 10px;
+    opacity: 1;
+    background: transparent;
+    overflow: visible;
 }
 
-.iframe-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.img-container img {
+    width: 90%;
     border: none;
-    border-radius: 20px;
     transform: scale(1);
     transition: var(--transition);
+    
+    /* L'ombre est maintenant directement sur l'image */
+    filter: drop-shadow(0 15px 40px rgba(238, 38, 70, 0.2));
 }
 
-.showcase-card:hover .iframe-container iframe {
+.showcase-card:hover .img-container img {
     transform: scale(1.05);
+    filter: drop-shadow(0 25px 60px rgba(238, 38, 70, 0.35));
 }
 
-.iframe-overlay {
+.img-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -1242,7 +1260,7 @@ body.dark-mode .showcase-card {
     border-radius: 20px;
 }
 
-.showcase-preview:hover .iframe-overlay {
+.showcase-preview:hover .img-overlay {
     opacity: 1;
 }
 
@@ -1502,6 +1520,7 @@ body.dark-mode .detail-content a {
     border-radius: 30px;
     border: 2px solid var(--gray-border);
     box-shadow: 0 10px 40px var(--shadow-color);
+    width: 82vw;
 }
 
 body.dark-mode .contact-form-section {
@@ -2403,6 +2422,53 @@ body.dark-mode .footer-nav a {
     .header-actions {
         gap: 0.8rem;
     }
+    
+    .mobile-social-links {
+            display: flex;
+    }
+
+
+    .mobile-social-icon {
+        width: 55px;
+        height: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: var(--white);
+        transition: var(--transition);
+        box-shadow: 0 5px 20px var(--shadow-color);
+    }
+
+    .mobile-social-icon:hover {
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 10px 30px var(--shadow-hover);
+    }
+
+    .mobile-social-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* Animation d'apparition */
+    @media (max-width: 768px) {
+        .nav.active .mobile-social-links {
+            animation: slideUp 0.5s ease-out 0.3s both;
+        }
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
 
     .hero-title {
         font-size: 3rem;
@@ -2527,9 +2593,9 @@ body.dark-mode .footer-nav a {
         font-size: 0.95rem;
     }
 
-    .iframe-container {
+    /* .img-container {
         padding-top: 60%;
-    }
+    } */
 
     .contact-page {
         padding: 3rem 0 6rem;

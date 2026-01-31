@@ -37,6 +37,17 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
+// Close mobile menu when clicking on social icons
+document.querySelectorAll('.mobile-social-icon').forEach(icon => {
+    icon.addEventListener('click', () => {
+        // Ne ferme pas le menu pour permettre l'ouverture du lien
+        // mais tu peux le fermer si tu veux :
+        // nav.classList.remove('active');
+        // mobileMenuToggle.classList.remove('active');
+        // body.style.overflow = '';
+    });
+});
+
 // Close mobile menu on outside click
 document.addEventListener('click', (e) => {
     if (!nav.contains(e.target) && !mobileMenuToggle.contains(e.target) && nav.classList.contains('active')) {
