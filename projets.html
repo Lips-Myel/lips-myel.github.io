@@ -1,33 +1,170 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Meta essentiels -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez les projets de Lips Création : développement Full-Stack, sites Symfony, applications JavaScript, boutiques e-commerce PrestaShop. Portfolio technique et créatif.">
-    <title>Projets - Lips Création</title>
-    <link rel="icon" type="png" href="./img/iconlips.png" />
-    <link rel="stylesheet" href="css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Title optimisé SEO -->
+    <title>Projets Web Full-Stack | Java Spring PHP Symfony React Angular | Lips Création</title>
+    
+    <!-- Meta description optimisée -->
+    <meta name="description" content="Portfolio de projets Full-Stack : Java Spring, PHP Symfony, Node.js, React, Angular. Sites web, applications e-commerce, API REST, bases SQL/NoSQL. Rennes, Bretagne.">
+    
+    <!-- Favicon optimisé -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/iconlips.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/iconlips.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lips-creation.dev/projets.html">
+    
+    <!-- Mots-clés optimisés -->
+    <meta name="keywords" content="portfolio développeur, projets Java Spring, projets PHP Symfony, projets Node.js, projets React, projets Angular, e-commerce PrestaShop, applications web, API REST, SQL NoSQL, développeur Rennes, Lips Création, portfolio full-stack, projets Bretagne">
+    
+    <!-- Auteur et copyright -->
+    <meta name="author" content="Lips Création - Développeur Full-Stack">
+    <meta name="copyright" content="Lips Création 2026">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    
+    <!-- Open Graph optimisé -->
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lips Création">
+    <meta property="og:title" content="Portfolio Projets Full-Stack | Java PHP Node.js React Angular">
+    <meta property="og:description" content="Découvrez mes projets : Java Spring, PHP Symfony, Node.js, React, Angular. Sites web, e-commerce, applications SQL/NoSQL. Portfolio créatif et technique.">
+    <meta property="og:url" content="https://lips-creation.dev/projets.html">
+    <meta property="og:image" content="https://lips-creation.dev/img/lips-og-projets.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Portfolio Projets Lips Création - Développeur Full-Stack">
+    
+    <!-- Twitter Card optimisé -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@lipscreation">
+    <meta name="twitter:creator" content="@lipscreation">
+    <meta name="twitter:title" content="Portfolio Projets Full-Stack | Java PHP Node.js React Angular">
+    <meta name="twitter:description" content="Projets web audacieux : Java Spring, PHP Symfony, Node.js, React, Angular, e-commerce, SQL/NoSQL. Portfolio développeur Rennes.">
+    <meta name="twitter:image" content="https://lips-creation.dev/img/lips-og-projets.jpg">
+    <meta name="twitter:image:alt" content="Portfolio Projets Lips Création">
+    
+    <!-- Geo localisation -->
+    <meta name="geo.region" content="FR-BRE">
+    <meta name="geo.placename" content="Rennes">
+    <meta name="geo.position" content="48.1173;-1.6778">
+    <meta name="ICBM" content="48.1173, -1.6778">
+    
+    <!-- Schema.org - ItemList pour les projets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Portfolio Projets Full-Stack",
+      "description": "Collection de projets web développés avec Java Spring, PHP Symfony, Node.js, React, Angular et bases SQL/NoSQL",
+      "url": "https://lips-creation.dev/projets.html",
+      "author": {
+        "@type": "Person",
+        "name": "Lips Création",
+        "url": "https://lips-creation.dev",
+        "jobTitle": "Développeur Full-Stack"
+      },
+      "inLanguage": "fr-FR",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Lips Création",
+        "url": "https://lips-creation.dev"
+      }
+    }
+    </script>
+    
+    <!-- Schema.org - CreativeWork pour portfolio -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Portfolio Développeur Full-Stack",
+      "description": "Portfolio de projets web : Java Spring, PHP Symfony, Node.js, React, Angular, PrestaShop, SQL, NoSQL",
+      "author": {
+        "@type": "Person",
+        "name": "Lips Création",
+        "url": "https://lips-creation.dev"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Développement Java Spring"
+        },
+        {
+          "@type": "Thing",
+          "name": "Développement PHP Symfony"
+        },
+        {
+          "@type": "Thing",
+          "name": "Développement Node.js"
+        },
+        {
+          "@type": "Thing",
+          "name": "Développement React"
+        },
+        {
+          "@type": "Thing",
+          "name": "Développement Angular"
+        },
+        {
+          "@type": "Thing",
+          "name": "E-commerce PrestaShop"
+        },
+        {
+          "@type": "Thing",
+          "name": "Bases de données SQL"
+        },
+        {
+          "@type": "Thing",
+          "name": "Bases de données NoSQL"
+        }
+      ],
+      "keywords": "portfolio, développeur full-stack, Java Spring, PHP Symfony, Node.js, React, Angular, SQL, NoSQL, e-commerce",
+      "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://lips-creation.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Projets",
+          "item": "https://lips-creation.dev/projets.html"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Preconnect pour optimiser les performances -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- Fonts optimisées -->
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700;800;900&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Open Graph pour les réseaux sociaux -->
-    <meta property="og:title" content="Lips Création - Conception & Développement d'Applications">
-    <meta property="og:description" content="Développement Full-Stack - Créateur d'expériences digitales audacieuses et performantes">
-    <meta property="og:image" content="https://lips-creation.dev/img/lips.png">
-    <meta property="og:url" content="https://lips-creation.dev">
-    <meta property="og:type" content="website">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Lips Création - Développement Full-Stack">
-    <meta name="twitter:description" content="Conception & Développement d'Applications – Expériences digitales audacieuses">
-    <meta name="twitter:image" content="https://lips-creation.dev/img/lips.png">
-
-    <!-- Mots-clés -->
-    <meta name="keywords" content="développeur Full-Stack, PHP, Symfony, React, JavaScript, conception application, portfolio développeur, alternance développeur, Bretagne, Saint-Brieuc, Lips Création">
-
-    <!-- Auteur -->
-    <meta name="author" content="Lips Création">
+    
+    <!-- Preload CSS -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Theme color -->
+    <meta name="theme-color" content="#ee2646">
+    <meta name="msapplication-TileColor" content="#ee2646">
 </head>
 <body>
     <div class="noise-overlay"></div>
@@ -278,7 +415,7 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <img src="img/lips.png" alt="Lips Creation" class="footer-logo">
-                <p class="footer-tagline signature">Cré★tion avec passion</p>
+                <p class="footer-tagline signature">Cré ★tion avec passion</p>
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/in/lips-creation/" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="LinkedIn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">

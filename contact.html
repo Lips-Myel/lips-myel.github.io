@@ -1,35 +1,236 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Meta essentiels -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contactez Lips Création pour vos projets de développement Full-Stack. Disponible pour stage CDA (mai-juillet 2026) et alternance Master (2 ans dès novembre 2026). Discutons de votre projet !">
-    <title>Contact - Lips Création</title>
-    <link rel="icon" type="png" href="./img/iconlips.png" />
-    <link rel="stylesheet" href="css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Title optimisé SEO -->
+    <title>Contact | Développeur Full-Stack Disponible en Alternance | Rennes | Lips Création</title>
+    
+    <!-- Meta description optimisée -->
+    <meta name="description" content="Contactez-moi pour vos projets Java Spring, PHP Symfony, Node.js, React, Angular. Stage mai-juillet 2026 + Alternance 2 ans Master ENI dès novembre 2026. Rennes, Bretagne.">
+    
+    <!-- Favicon optimisé -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/iconlips.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/iconlips.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lips-creation.dev/contact.html">
+    
+    <!-- Mots-clés optimisés -->
+    <meta name="keywords" content="contact développeur full-stack, recrutement développeur Rennes, alternance développeur Java PHP, stage développeur 2026, développeur disponible Bretagne, embauche développeur React Angular, contact Lips Création, développeur freelance Rennes, mission développeur web">
+    
+    <!-- Auteur et copyright -->
+    <meta name="author" content="Lips Création - Développeur Full-Stack">
+    <meta name="copyright" content="Lips Création 2026">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    
+    <!-- Open Graph optimisé -->
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lips Création">
+    <meta property="og:title" content="Contact | Développeur Full-Stack Disponible en Alternance | Lips Création">
+    <meta property="og:description" content="Développeur Full-Stack : Java Spring, PHP Symfony, Node.js, React, Angular. Stage mai-juillet 2026. Alternance 2 ans dès novembre 2026. Contactez-moi !">
+    <meta property="og:url" content="https://lips-creation.dev/contact.html">
+    <meta property="og:image" content="https://lips-creation.dev/img/lips-og-contact.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Contact Lips Création - Développeur Full-Stack disponible">
+    
+    <!-- Twitter Card optimisé -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@lipscreation">
+    <meta name="twitter:creator" content="@lipscreation">
+    <meta name="twitter:title" content="Contact | Développeur Full-Stack Disponible | Lips Création">
+    <meta name="twitter:description" content="Développeur Full-Stack disponible : Java, PHP, Node.js, React, Angular. Stage + Alternance 2 ans. Rennes.">
+    <meta name="twitter:image" content="https://lips-creation.dev/img/lips-og-contact.jpg">
+    <meta name="twitter:image:alt" content="Contact Lips Création">
+    
+    <!-- Geo localisation -->
+    <meta name="geo.region" content="FR-BRE">
+    <meta name="geo.placename" content="Rennes">
+    <meta name="geo.position" content="48.1173;-1.6778">
+    <meta name="ICBM" content="48.1173, -1.6778">
+    
+    <!-- Schema.org - ContactPage (sans données personnelles) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact Lips Création",
+      "description": "Contactez Lips Création pour vos projets de développement Full-Stack ou pour une alternance",
+      "url": "https://lips-creation.dev/contact.html",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Lips Création",
+        "url": "https://lips-creation.dev",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Rennes",
+          "addressRegion": "Bretagne",
+          "addressCountry": "FR"
+        },
+        "jobTitle": "Développeur Full-Stack",
+        "knowsAbout": [
+          "Java Spring Boot",
+          "PHP Symfony",
+          "Node.js",
+          "React",
+          "Angular",
+          "SQL",
+          "NoSQL"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/lips-creation/",
+          "https://github.com/Lips-Myel"
+        ]
+      },
+      "inLanguage": "fr-FR",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Lips Création",
+        "url": "https://lips-creation.dev"
+      }
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://lips-creation.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact",
+          "item": "https://lips-creation.dev/contact.html"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- JobPosting Schema pour disponibilité -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      "title": "Recherche Alternance Développeur Full-Stack",
+      "description": "Développeur Full-Stack recherche alternance de 2 ans dans le cadre du Master EADL à l'ENI. Compétences : Java Spring, PHP Symfony, Node.js, React, Angular, SQL, NoSQL. Stage pré-alternance possible du 21 mai au 31 juillet 2026.",
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "Lips Création",
+        "value": "ALT-2026"
+      },
+      "datePosted": "2026-01-31",
+      "validThrough": "2026-11-30",
+      "employmentType": ["INTERN", "PART_TIME"],
+      "hiringOrganization": {
+        "@type": "Person",
+        "name": "Lips Création",
+        "sameAs": "https://lips-creation.dev"
+      },
+      "jobLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Rennes",
+          "addressRegion": "Bretagne",
+          "postalCode": "35000",
+          "addressCountry": "FR"
+        }
+      },
+      "applicantLocationRequirements": {
+        "@type": "Country",
+        "name": "FR"
+      },
+      "jobLocationType": "TELECOMMUTE",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "EUR",
+        "value": {
+          "@type": "QuantitativeValue",
+          "value": "Selon grille alternance",
+          "unitText": "MONTH"
+        }
+      },
+      "workHours": "6 semaines en entreprise / 1-2 semaines de cours",
+      "educationRequirements": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Master",
+        "educationalLevel": "Master EADL",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "ENI - École Nationale d'Informatique"
+        }
+      },
+      "skills": "Java Spring Boot, PHP Symfony, Node.js, React, Angular, JavaScript, TypeScript, SQL, NoSQL, Git, Docker, API REST",
+      "qualifications": "Formation Concepteur Développeur d'Applications (AFPA) en cours, admis en Master EADL (ENI)",
+      "responsibilities": "Développement Full-Stack d'applications web, conception d'API REST, gestion de bases de données SQL/NoSQL, travail en équipe agile",
+      "experienceRequirements": {
+        "@type": "OccupationalExperienceRequirements",
+        "monthsOfExperience": 0
+      },
+      "jobStartDate": "2026-11-01",
+      "directApply": true,
+      "applicationContact": {
+        "@type": "ContactPoint",
+        "url": "https://lips-creation.dev/contact.html"
+      }
+    }
+    </script>
+    
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Lips Création",
+      "url": "https://lips-creation.dev",
+      "logo": "https://lips-creation.dev/img/lips.png",
+      "description": "Services de développement web Full-Stack : Java Spring, PHP Symfony, Node.js, React, Angular",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rennes",
+        "addressRegion": "Bretagne",
+        "addressCountry": "FR"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/lips-creation/",
+        "https://github.com/Lips-Myel"
+      ]
+    }
+    </script>
+    
+    <!-- Preconnect pour optimiser les performances -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://www.google.com">
+    
+    <!-- Fonts optimisées -->
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700;800;900&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload CSS -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- reCAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <!-- Open Graph pour les réseaux sociaux -->
-    <meta property="og:title" content="Lips Création - Conception & Développement d'Applications">
-    <meta property="og:description" content="Développement Full-Stack - Créateur d'expériences digitales audacieuses et performantes">
-    <meta property="og:image" content="https://lips-creation.dev/img/lips.png">
-    <meta property="og:url" content="https://lips-creation.dev">
-    <meta property="og:type" content="website">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Lips Création - Développement Full-Stack">
-    <meta name="twitter:description" content="Conception & Développement d'Applications – Expériences digitales audacieuses">
-    <meta name="twitter:image" content="https://lips-creation.dev/img/lips.png">
-
-    <!-- Mots-clés -->
-    <meta name="keywords" content="développeur Full-Stack, PHP, Symfony, React, JavaScript, conception application, portfolio développeur, alternance développeur, Bretagne, Saint-Brieuc, Lips Création">
-
-    <!-- Auteur -->
-    <meta name="author" content="Lips Création">
+    
+    <!-- Theme color -->
+    <meta name="theme-color" content="#ee2646">
+    <meta name="msapplication-TileColor" content="#ee2646">
 </head>
+
 <body>
     <div class="noise-overlay"></div>
     
@@ -194,7 +395,7 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <img src="img/lips.png" alt="Lips Creation" class="footer-logo">
-                <p class="footer-tagline signature">Cré★tion avec passion</p>
+                <p class="footer-tagline signature">Cré ★tion avec passion</p>
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/in/lips-creation/" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="LinkedIn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
