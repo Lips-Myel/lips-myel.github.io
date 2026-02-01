@@ -89,6 +89,37 @@ body.dark-mode .noise-overlay {
     padding: 0 2rem;
 }
 
+/* =========================
+   Scrollbar macOS-like
+   ========================= */
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(
+    in srgb,
+    var(--secondary),
+    transparent
+  ) transparent;
+}
+
+/* Chrome, Edge, Safari */
+*::-webkit-scrollbar {
+  width: 3px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: color-mix(
+    in srgb,
+    var(--secondary),
+    transparent
+  );
+  border-radius: 999px;
+}
 
 /* ========================================
    🎯 HEADER & NAVIGATION
@@ -1104,32 +1135,88 @@ body.dark-mode .step-content {
    ======================================== */
 
 .page-hero {
-    padding: 180px 0 100px;
-    text-align: center;
-    position: relative;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  height: calc(100vh - 90px);
+  display: flex;
+  justify-content: center;
 }
 
+/* Assure que le contenu reste au-dessus des effets */
+.page-hero .page-hero-content{
+  position: relative;
+  z-index: 2;
+}
+
+/* Halo + vignette (remplace ton ::before) */
 .page-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    height: 100vh;
-    background: radial-gradient(circle, var(--shadow-color) 0%, transparent 70%);
-    filter: blur(60px);
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.9;
+
+  background:
+    radial-gradient(circle at 50% 35%, transparent 0%, var(--secondary) 100%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+/* Image WebP + glow */
+.page-hero::after{
+  content:"";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background-image: url("../img/lipshero.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  filter: saturate(1.15) contrast(1.01) drop-shadow(0 0 60px rgba(238,38,70,0.25));
+
+  transform: translateY(10px) scale(1.02);
+  transition: transform .9s cubic-bezier(.2,.8,.2,1), filter .9s cubic-bezier(.2,.8,.2,1), opacity .9s;
+  animation: page-hero-float 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes page-hero-float{
+  0%,100% { transform: translateY(10px) scale(1.05); }
+  50%     { transform: translateY(0px)  scale(1.04); }
+}
+
+@media (hover:hover){
+  .page-hero:hover::after{
+    transform: translateY(6px) scale(1.06);
+    filter: saturate(1.25) contrast(1.08) drop-shadow(0 0 90px rgba(238,38,70,0.35));
+    opacity: 0.8;
+  }
+}
+
+.container-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .page-hero-content {
     position: relative;
     z-index: 1;
+    background: #ffffff35;
+    max-width: calc(100vw - (var(--container-padding) * 2));
+    border-radius: 20px;
+    padding: 10px;
 }
 
 .page-tag {
     display: inline-block;
     font-size: 1.3rem;
-    color: var(--primary);
     margin-bottom: 1rem;
 }
 

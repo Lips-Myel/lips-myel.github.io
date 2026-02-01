@@ -272,6 +272,8 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+
+
 // Console signature
 console.log('%c🎸 Lips Creation 💋', 'font-size: 24px; font-weight: bold; color: #ee2646; text-shadow: 2px 2px 0 #bc2551;');
 console.log('%cDevelopment by Lips Myel ★', 'font-size: 14px; color: #ee2646;');
