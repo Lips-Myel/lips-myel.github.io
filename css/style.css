@@ -384,20 +384,35 @@ body.dark-mode .toggle-icon {
 }
 
 .hero-content {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
+    display: flex;
+    
     gap: 4rem;
     align-items: center;
+    justify-content: center;
     position: relative;
     z-index: 1;
 }
-
+.hero-text {
+    text-align: center;
+}
 .hero-tag {
     display: inline-block;
     font-size: 1.2rem;
     color: var(--primary);
     margin-bottom: 1rem;
     letter-spacing: 1px;
+}
+
+body.dark-mode .hero-tag  {
+    color: var(--text-dark);
+}
+
+body.dark-mode .hero  {
+    .gradient-text {
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: var(--text-dark);
+            background-clip: text;
+    }
 }
 
 .hero-title {
@@ -453,105 +468,10 @@ body.dark-mode .subtitle-line {
 
 .hero-cta {
     display: flex;
+    justify-content: center;
     gap: 1.2rem;
     flex-wrap: wrap;
 }
-
-/* Hero Visual */
-.hero-visual {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.visual-card {
-    width: 350px;
-    height: 350px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    border-radius: 40px;
-    position: relative;
-    box-shadow: 0 25px 60px var(--shadow-hover);
-    animation: float-card 6s infinite ease-in-out;
-    overflow: hidden;
-}
-
-@keyframes float-card {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-25px) rotate(2deg); }
-}
-
-.card-glossy {
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent 30%,
-        rgba(255, 255, 255, 0.3) 50%,
-        transparent 70%
-    );
-    animation: glossy-shine 3s infinite;
-}
-
-@keyframes glossy-shine {
-    0% { transform: translateX(-100%) translateY(-100%); }
-    100% { transform: translateX(100%) translateY(100%); }
-}
-
-.card-content {
-    position: relative;
-    z-index: 1;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.code-art {
-    font-size: 6rem;
-    font-weight: 900;
-    color: var(--white);
-    text-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-}
-
-.code-lines {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    width: 60%;
-}
-
-.code-lines span {
-    height: 8px;
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 4px;
-    animation: code-pulse 2s infinite ease-in-out;
-}
-
-.code-lines span:nth-child(1) {
-    width: 100%;
-}
-
-.code-lines span:nth-child(2) {
-    width: 75%;
-    animation-delay: 0.2s;
-}
-
-.code-lines span:nth-child(3) {
-    width: 90%;
-    animation-delay: 0.4s;
-}
-
-@keyframes code-pulse {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
-}
-
 
 /* ========================================
    🏠 HOME PAGE - EXPERTISE SECTION
@@ -1171,7 +1091,7 @@ body.dark-mode .step-content {
   inset: 0;
   z-index: 1;
 
-  background-image: url("../img/lipshero.webp");
+  background-image: url("../img/lipsherowhite.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1196,7 +1116,8 @@ body.dark-mode .step-content {
     opacity: 0.8;
   }
 }
-
+body.dark-mode .page-hero::after{
+background-image: url('../img/lipshero.webp');}
 .container-hero {
     display: flex;
     flex-direction: column;
@@ -1208,10 +1129,13 @@ body.dark-mode .step-content {
 .page-hero-content {
     position: relative;
     z-index: 1;
-    background: #ffffff35;
+    background: #ffffff90;
     max-width: calc(100vw - (var(--container-padding) * 2));
     border-radius: 20px;
     padding: 10px;
+}
+body.dark-mode .page-hero-content {
+    background: #00000070;
 }
 
 .page-tag {
@@ -2389,11 +2313,11 @@ body.dark-mode .footer-nav a {
    ======================================== */
 
 @media (max-width: 1024px) {
-    .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
 
+    .page-hero-content {
+        padding: 8px;
+        max-height: 90vh;
+    }
     .hero-title {
         font-size: 4rem;
     }

@@ -3,20 +3,35 @@ const themeToggle = document.getElementById('themeToggle');
 const body = document.body;
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
+const logoImg = document.querySelector('.logo-img');
+const footerLogo = document.querySelector('.footer-logo');
+
+const LOGO_BLACK = '../img/lips-creation-black.png';
+const LOGO_WHITE = '../img/lips-creation-white.png';
+
+function updateLogos(isDark) {
+  const src = isDark ? LOGO_WHITE : LOGO_BLACK;
+  if (logoImg) logoImg.src = src;
+  if (footerLogo) footerLogo.src = src;
+}
+
+
 // Initialize theme
 const currentTheme = localStorage.getItem('theme') || (prefersDark.matches ? 'dark' : 'light');
 if (currentTheme === 'dark') {
-    body.classList.add('dark-mode');
+  body.classList.add('dark-mode');
 }
+updateLogos(body.classList.contains('dark-mode'));
 
 themeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
-    localStorage.setItem('theme', theme);
-    
-    // Ripple effect on toggle
-    createRipple(themeToggle);
+  body.classList.toggle('dark-mode');
+  const isDark = body.classList.contains('dark-mode');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+  updateLogos(isDark);
+  createRipple(themeToggle);
 });
+
 
 // Mobile Menu Toggle
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');
