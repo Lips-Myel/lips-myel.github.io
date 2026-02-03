@@ -399,7 +399,7 @@ body.dark-mode .toggle-icon {
 .hero-tag {
     display: inline-block;
     font-size: 1.2rem;
-    color: var(--primary);
+    color: var(--text-light);
     margin-bottom: 1rem;
     letter-spacing: 1px;
 }
@@ -447,6 +447,9 @@ body.dark-mode .hero  {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     font-weight: 700;
+    .gradient-text {
+        color: var(--text-light);
+    }
 }
 
 .subtitle-line {
@@ -1130,7 +1133,7 @@ background-image: url('../img/lipshero.webp');}
 .page-hero-content {
     position: relative;
     z-index: 1;
-    background: #ffffff90;
+    background: #ffffffa0;
     max-width: calc(100vw - (var(--container-padding) * 2));
     border-radius: 20px;
     padding: 10px;
