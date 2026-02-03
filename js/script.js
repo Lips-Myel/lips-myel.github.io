@@ -86,64 +86,77 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Contact Form Handling with Formspree
+// Contact Form Handling with Formspree (+ reCAPTCHA v2 checkbox)
 const contactForm = document.getElementById('contactForm');
+
 if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const formMessage = document.getElementById('formMessage');
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.innerHTML;
-        
-        // Disable submit button
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span class="btn-text">Envoi en cours...</span>';
-        
-        try {
-            const formData = new FormData(contactForm);
-            const response = await fetch(contactForm.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-            
-            if (response.ok) {
-                formMessage.textContent = '✨ Message envoyé avec succès ! Je vous répondrai très bientôt.';
-                formMessage.className = 'form-message success';
-                contactForm.reset();
-                
-                // Reset reCAPTCHA
-                if (typeof grecaptcha !== 'undefined') {
-                    grecaptcha.reset();
-                }
-            } else {
-                const data = await response.json();
-                if (data.errors) {
-                    formMessage.textContent = '❌ ' + data.errors.map(error => error.message).join(', ');
-                } else {
-                    formMessage.textContent = '❌ Erreur lors de l\'envoi. Veuillez réessayer.';
-                }
-                formMessage.className = 'form-message error';
-            }
-        } catch (error) {
-            console.error('Form submission error:', error);
-            formMessage.textContent = '❌ Erreur de connexion. Vérifiez votre connexion internet et réessayez.';
-            formMessage.className = 'form-message error';
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
-            
-            // Hide message after 6 seconds
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-                formMessage.className = 'form-message';
-            }, 6000);
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formMessage = document.getElementById('formMessage');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.innerHTML;
+
+    formMessage.style.display = 'block';
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="btn-text">Envoi en cours...</span>';
+
+    try {
+      const formData = new FormData(contactForm);
+
+      // reCAPTCHA v2: ensure we submit g-recaptcha-response
+      if (typeof grecaptcha !== 'undefined' && grecaptcha?.getResponse) {
+        const token = grecaptcha.getResponse(); // v2 checkbox token
+        if (!token) {
+          formMessage.textContent = "Veuillez valider le reCAPTCHA avant d'envoyer.";
+          formMessage.className = 'form-message error';
+          return;
         }
-    });
+        // Formspree expects this exact field name. [web:16]
+        formData.set('g-recaptcha-response', token);
+      }
+
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      });
+
+      if (response.ok) {
+        formMessage.textContent = 'Message envoyé avec succès ! Je vous répondrai très bientôt.';
+        formMessage.className = 'form-message success';
+        contactForm.reset();
+
+        if (typeof grecaptcha !== 'undefined' && grecaptcha?.reset) {
+          grecaptcha.reset();
+        }
+      } else {
+        const data = await response.json().catch(() => null);
+        if (data?.errors) {
+          formMessage.textContent =
+            'Erreur : ' + data.errors.map((err) => err.message).join(', ');
+        } else {
+          formMessage.textContent = "Erreur lors de l'envoi. Veuillez réessayer.";
+        }
+        formMessage.className = 'form-message error';
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      formMessage.textContent = 'Erreur de connexion. Vérifiez votre connexion internet et réessayez.';
+      formMessage.className = 'form-message error';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+
+      setTimeout(() => {
+        formMessage.style.display = 'none';
+        formMessage.className = 'form-message';
+      }, 6000);
+    }
+  });
 }
+
 
 
 // Intersection Observer for scroll animations
