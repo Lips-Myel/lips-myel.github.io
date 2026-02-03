@@ -448,7 +448,9 @@ body.dark-mode .hero  {
     margin-bottom: 1.5rem;
     font-weight: 700;
     .gradient-text {
-        color: var(--text-light);
+        -webkit-background-clip: text;
+            -webkit-text-fill-color: var(--text-light);
+            background-clip: text;
     }
 }
 
