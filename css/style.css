@@ -26,6 +26,37 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(
+    in srgb,
+    var(--secondary),
+    transparent
+  ) transparent;
+}
+
+/* =========================
+   Scrollbar macOS-like
+   ========================= */
+
+
+
+
+/* Chrome, Edge, Safari */
+*::-webkit-scrollbar {
+  width: 3px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: color-mix(
+    in srgb,
+    var(--secondary),
+    transparent
+  );
+  border-radius: 999px;
 }
 
 *::selection {
@@ -89,37 +120,7 @@ body.dark-mode .noise-overlay {
     padding: 0 2rem;
 }
 
-/* =========================
-   Scrollbar macOS-like
-   ========================= */
 
-/* Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: color-mix(
-    in srgb,
-    var(--secondary),
-    transparent
-  ) transparent;
-}
-
-/* Chrome, Edge, Safari */
-*::-webkit-scrollbar {
-  width: 3px;
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: color-mix(
-    in srgb,
-    var(--secondary),
-    transparent
-  );
-  border-radius: 999px;
-}
 
 /* ========================================
    🎯 HEADER & NAVIGATION
@@ -1720,8 +1721,8 @@ body.dark-mode .form-group textarea {
 }
 
 .form-message.success {
-    background: rgba(46, 213, 115, 0.15);
     color: #27ae60;
+    background: rgba(46, 213, 115, 0.15);
     border: 2px solid #27ae60;
     display: block;
 }
@@ -2601,10 +2602,6 @@ body.dark-mode .footer-nav a {
         font-size: 0.95rem;
     }
 
-    /* .img-container {
-        padding-top: 60%;
-    } */
-
     .contact-page {
         padding: 3rem 0 6rem;
     }
@@ -2704,6 +2701,8 @@ body.dark-mode .footer-nav a {
     .visual-card {
         width: 250px;
         height: 250px;
+        min-height: 150px;
+        padding: 2rem;
     }
 
     .project-name {
@@ -2789,11 +2788,6 @@ body.dark-mode .footer-nav a {
 
     .journey-title {
         font-size: 1.8rem;
-    }
-
-    .visual-card {
-        min-height: 150px;
-        padding: 2rem;
     }
 
     .visual-icon {

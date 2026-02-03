@@ -1,7 +1,7 @@
 // Theme Toggle with localStorage persistence
 const themeToggle = document.getElementById('themeToggle');
 const body = document.body;
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)');
 
 const logoImg = document.querySelector('.logo-img');
 const footerLogo = document.querySelector('.footer-logo');
@@ -129,6 +129,7 @@ if (contactForm) {
                 formMessage.className = 'form-message error';
             }
         } catch (error) {
+            console.error('Form submission error:', error);
             formMessage.textContent = '❌ Erreur de connexion. Vérifiez votre connexion internet et réessayez.';
             formMessage.className = 'form-message error';
         } finally {
