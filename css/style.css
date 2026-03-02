@@ -288,17 +288,13 @@ body.dark-mode .social-icon {
 }
 
 .toggle-icon {
-    width: 20px;
-    height: 20px;
-    background: var(--white);
-    border-radius: 50%;
-    position: relative;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
     transition: var(--transition);
-}
-
-body.dark-mode .toggle-icon {
-    transform: scale(0.6);
-    box-shadow: -10px -10px 0 5px var(--white);
 }
 
 /* Mobile Menu Toggle */

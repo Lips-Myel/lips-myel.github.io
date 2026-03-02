@@ -1,13 +1,18 @@
-// Theme Toggle with localStorage persistence
+// ================================================
+// Theme Toggle - dark by default + system preference
+// ================================================
+
 const themeToggle = document.getElementById('themeToggle');
 const body = document.body;
-const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)');
-
+const toggleIcon = document.querySelector('.toggle-icon');
 const logoImg = document.querySelector('.logo-img');
 const footerLogo = document.querySelector('.footer-logo');
 
 const LOGO_BLACK = '../img/lips-creation-black.png';
 const LOGO_WHITE = '../img/lips-creation-white.png';
+
+const icon_sun = '../img/sun.svg';
+const icon_moon = '../img/moon-stars.svg';
 
 function updateLogos(isDark) {
   const src = isDark ? LOGO_WHITE : LOGO_BLACK;
@@ -15,78 +20,96 @@ function updateLogos(isDark) {
   if (footerLogo) footerLogo.src = src;
 }
 
-
-// Initialize theme
-const currentTheme = localStorage.getItem('theme') || (prefersDark.matches ? 'dark' : 'light');
-if (currentTheme === 'dark') {
-  body.classList.add('dark-mode');
+function updateIcon(isDark) {
+  if (toggleIcon) toggleIcon.textContent = isDark ? icon_moon : icon_sun;
 }
-updateLogos(body.classList.contains('dark-mode'));
 
-themeToggle.addEventListener('click', () => {
-  body.classList.toggle('dark-mode');
-  const isDark = body.classList.contains('dark-mode');
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-
+function applyTheme(isDark) {
+  if (isDark) {
+    body.classList.add('dark-mode');
+  } else {
+    body.classList.remove('dark-mode');
+  }
   updateLogos(isDark);
+  updateIcon(isDark);
+}
+
+// Priorité : localStorage > préférence système > dark par défaut
+const savedTheme = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+let isDark;
+if (savedTheme) {
+  isDark = savedTheme === 'dark';
+} else {
+  // Pas de préférence sauvegardée → préférence système, sinon dark par défaut
+  isDark = prefersDark.matches === undefined ? true : prefersDark.matches;
+}
+
+applyTheme(isDark);
+
+// Écoute les changements de préférence système (seulement si pas de localStorage)
+prefersDark.addEventListener('change', (e) => {
+  if (!localStorage.getItem('theme')) {
+    applyTheme(e.matches);
+  }
+});
+
+// Clic bouton toggle
+themeToggle.addEventListener('click', () => {
+  const nowDark = !body.classList.contains('dark-mode');
+  applyTheme(nowDark);
+  localStorage.setItem('theme', nowDark ? 'dark' : 'light');
   createRipple(themeToggle);
 });
 
-
+// ================================================
 // Mobile Menu Toggle
+// ================================================
+
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 const nav = document.querySelector('.nav');
 
 mobileMenuToggle.addEventListener('click', () => {
-    nav.classList.toggle('active');
-    mobileMenuToggle.classList.toggle('active');
-    body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+  nav.classList.toggle('active');
+  mobileMenuToggle.classList.toggle('active');
+  body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
 });
 
-// Close mobile menu on link click
 document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        nav.classList.remove('active');
-        mobileMenuToggle.classList.remove('active');
-        body.style.overflow = '';
-    });
+  link.addEventListener('click', () => {
+    nav.classList.remove('active');
+    mobileMenuToggle.classList.remove('active');
+    body.style.overflow = '';
+  });
 });
 
-// Close mobile menu when clicking on social icons
-document.querySelectorAll('.mobile-social-icon').forEach(icon => {
-    icon.addEventListener('click', () => {
-        // Ne ferme pas le menu pour permettre l'ouverture du lien
-        // mais tu peux le fermer si tu veux :
-        // nav.classList.remove('active');
-        // mobileMenuToggle.classList.remove('active');
-        // body.style.overflow = '';
-    });
-});
-
-// Close mobile menu on outside click
 document.addEventListener('click', (e) => {
-    if (!nav.contains(e.target) && !mobileMenuToggle.contains(e.target) && nav.classList.contains('active')) {
-        nav.classList.remove('active');
-        mobileMenuToggle.classList.remove('active');
-        body.style.overflow = '';
-    }
+  if (!nav.contains(e.target) && !mobileMenuToggle.contains(e.target) && nav.classList.contains('active')) {
+    nav.classList.remove('active');
+    mobileMenuToggle.classList.remove('active');
+    body.style.overflow = '';
+  }
 });
 
-// Smooth scroll for all links
+// ================================================
+// Smooth Scroll
+// ================================================
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
 });
 
-// Contact Form Handling with Formspree (+ reCAPTCHA v2 checkbox)
+// ================================================
+// Contact Form + reCAPTCHA
+// ================================================
+
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
@@ -98,22 +121,19 @@ if (contactForm) {
     const originalBtnText = submitBtn.innerHTML;
 
     formMessage.style.display = 'block';
-
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<span class="btn-text">Envoi en cours...</span>';
 
     try {
       const formData = new FormData(contactForm);
 
-      // reCAPTCHA v2: ensure we submit g-recaptcha-response
       if (typeof grecaptcha !== 'undefined' && grecaptcha?.getResponse) {
-        const token = grecaptcha.getResponse(); // v2 checkbox token
+        const token = grecaptcha.getResponse();
         if (!token) {
           formMessage.textContent = "Veuillez valider le reCAPTCHA avant d'envoyer.";
           formMessage.className = 'form-message error';
           return;
         }
-        // Formspree expects this exact field name. [web:16]
         formData.set('g-recaptcha-response', token);
       }
 
@@ -127,18 +147,14 @@ if (contactForm) {
         formMessage.textContent = 'Message envoyé avec succès ! Je vous répondrai très bientôt.';
         formMessage.className = 'form-message success';
         contactForm.reset();
-
         if (typeof grecaptcha !== 'undefined' && grecaptcha?.reset) {
           grecaptcha.reset();
         }
       } else {
         const data = await response.json().catch(() => null);
-        if (data?.errors) {
-          formMessage.textContent =
-            'Erreur : ' + data.errors.map((err) => err.message).join(', ');
-        } else {
-          formMessage.textContent = "Erreur lors de l'envoi. Veuillez réessayer.";
-        }
+        formMessage.textContent = data?.errors
+          ? 'Erreur : ' + data.errors.map(err => err.message).join(', ')
+          : "Erreur lors de l'envoi. Veuillez réessayer.";
         formMessage.className = 'form-message error';
       }
     } catch (error) {
@@ -148,7 +164,6 @@ if (contactForm) {
     } finally {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalBtnText;
-
       setTimeout(() => {
         formMessage.style.display = 'none';
         formMessage.className = 'form-message';
@@ -157,153 +172,133 @@ if (contactForm) {
   });
 }
 
-
-
-// Intersection Observer for scroll animations
-const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
-};
+// ================================================
+// Intersection Observer - scroll animations
+// ================================================
 
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 
-// Observe cards with staggered animation
 document.querySelectorAll('.expertise-card, .project-card').forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(50px)';
-    card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-    observer.observe(card);
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(50px)';
+  card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+  observer.observe(card);
 });
 
+// ================================================
 // Header scroll effect
-let lastScroll = 0;
+// ================================================
+
 const header = document.querySelector('.header');
 
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        header.style.boxShadow = '0 4px 30px var(--shadow-hover)';
-    } else {
-        header.style.boxShadow = '0 2px 30px var(--shadow-color)';
-    }
-    
-    lastScroll = currentScroll;
+  if (window.pageYOffset > 100) {
+    header.style.boxShadow = '0 4px 30px var(--shadow-hover)';
+  } else {
+    header.style.boxShadow = '0 2px 30px var(--shadow-color)';
+  }
 });
 
-// Parallax effect on hero visual
+// ================================================
+// Parallax hero
+// ================================================
+
 const heroVisual = document.querySelector('.hero-visual');
 if (heroVisual) {
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallaxSpeed = 0.3;
-        if (scrolled < window.innerHeight) {
-            heroVisual.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
-        }
-    });
-}
-
-// Cursor trail effect (subtle)
-let cursorTrail = [];
-const maxTrailLength = 10;
-
-document.addEventListener('mousemove', (e) => {
-    if (window.innerWidth > 768) {
-        cursorTrail.push({ x: e.clientX, y: e.clientY });
-        if (cursorTrail.length > maxTrailLength) {
-            cursorTrail.shift();
-        }
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    if (scrolled < window.innerHeight) {
+      heroVisual.style.transform = `translateY(${scrolled * 0.3}px)`;
     }
-});
-
-// Ripple effect helper
-function createRipple(element) {
-    const ripple = document.createElement('span');
-    const rect = element.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    
-    ripple.style.width = ripple.style.height = size + 'px';
-    ripple.style.position = 'absolute';
-    ripple.style.borderRadius = '50%';
-    ripple.style.background = 'rgba(255, 255, 255, 0.5)';
-    ripple.style.transform = 'scale(0)';
-    ripple.style.animation = 'ripple-animation 0.6s ease-out';
-    ripple.style.pointerEvents = 'none';
-    
-    element.appendChild(ripple);
-    
-    setTimeout(() => ripple.remove(), 600);
+  });
 }
 
-// Add ripple animation to buttons
+// ================================================
+// Ripple effect
+// ================================================
+
+function createRipple(element) {
+  const ripple = document.createElement('span');
+  const rect = element.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height);
+
+  ripple.style.cssText = `
+    width: ${size}px;
+    height: ${size}px;
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    transform: scale(0);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+  `;
+
+  element.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 600);
+}
+
 document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        const ripple = document.createElement('div');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-        
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = x + 'px';
-        ripple.style.top = y + 'px';
-        ripple.classList.add('ripple-effect');
-        
-        this.appendChild(ripple);
-        
-        setTimeout(() => ripple.remove(), 600);
-    });
+  btn.addEventListener('click', function (e) {
+    const ripple = document.createElement('div');
+    const rect = this.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+
+    ripple.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      left: ${e.clientX - rect.left - size / 2}px;
+      top: ${e.clientY - rect.top - size / 2}px;
+    `;
+    ripple.classList.add('ripple-effect');
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+  });
 });
 
-// Add CSS for ripple animation dynamically
 const style = document.createElement('style');
 style.textContent = `
-    @keyframes ripple-animation {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
-    }
-    
-    .ripple-effect {
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.6);
-        transform: scale(0);
-        animation: ripple-animation 0.6s ease-out;
-        pointer-events: none;
-    }
+  @keyframes ripple-animation {
+    to { transform: scale(4); opacity: 0; }
+  }
+  .ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.6);
+    transform: scale(0);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+  }
 `;
 document.head.appendChild(style);
 
-// Easter egg: Konami code
+// ================================================
+// Konami code easter egg
+// ================================================
+
 let konamiCode = [];
-const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+const konamiSequence = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
 
 document.addEventListener('keydown', (e) => {
-    konamiCode.push(e.key);
-    if (konamiCode.length > konamiSequence.length) {
-        konamiCode.shift();
-    }
-    if (konamiCode.join(',') === konamiSequence.join(',')) {
-        document.body.style.animation = 'rainbow 2s infinite';
-        setTimeout(() => {
-            document.body.style.animation = '';
-        }, 5000);
-    }
+  konamiCode.push(e.key);
+  if (konamiCode.length > konamiSequence.length) konamiCode.shift();
+  if (konamiCode.join(',') === konamiSequence.join(',')) {
+    document.body.style.animation = 'rainbow 2s infinite';
+    setTimeout(() => { document.body.style.animation = ''; }, 5000);
+  }
 });
 
-
-
+// ================================================
 // Console signature
+// ================================================
+
 console.log('%c🎸 Lips Creation 💋', 'font-size: 24px; font-weight: bold; color: #ee2646; text-shadow: 2px 2px 0 #bc2551;');
 console.log('%cDevelopment by Lips Myel ★', 'font-size: 14px; color: #ee2646;');
 console.log('%cVous cherchez des secrets ? Continue... 😏', 'font-size: 12px; font-style: italic; color: #999;');
