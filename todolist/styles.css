@@ -55,7 +55,13 @@ header p {
     color: #333;
     margin-bottom: 20px;
 }
-
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
 .form {
     display: flex;
     flex-direction: column;
@@ -76,7 +82,7 @@ textarea {
 
 .btn {
     background-color: #28a745;
-    color: white;
+    color: #fff;
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -270,6 +276,7 @@ textarea {
     
     .auth-container{
         flex-direction: column;
+        align-items: center;
     }
 
 }
