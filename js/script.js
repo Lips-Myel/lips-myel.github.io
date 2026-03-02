@@ -21,7 +21,7 @@ function updateLogos(isDark) {
 }
 
 function updateIcon(isDark) {
-  if (toggleIcon) toggleIcon.textContent = isDark ? icon_moon : icon_sun;
+  if (toggleIcon) toggleIcon.src = isDark ? icon_moon : icon_sun;
 }
 
 function applyTheme(isDark) {
@@ -36,7 +36,7 @@ function applyTheme(isDark) {
 
 // Priorité : localStorage > préférence système > dark par défaut
 const savedTheme = localStorage.getItem('theme');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)');
 
 let isDark;
 if (savedTheme) {
