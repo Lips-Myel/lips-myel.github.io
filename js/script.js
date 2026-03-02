@@ -21,8 +21,7 @@ function updateLogos(isDark) {
 }
 
 function updateIcon(isDark) {
-    const srcIcon = isDark ? icon_moon  : icon_sun;
-    if (toggleIcon) toggleIcon.srcIcon = srcIcon
+  if (toggleIcon) toggleIcon.src = isDark ? icon_moon : icon_sun;
 }
 
 function applyTheme(isDark) {
