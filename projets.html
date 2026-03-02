@@ -293,15 +293,11 @@
                             <h3 class="showcase-title">TO DO LIST</h3>
                             <div class="showcase-tech signature">SQL.js • HTML • CSS</div>
                             <p class="showcase-description">
-                                C'est une **application web de gestion de tâches** (todo app) qui tourne entièrement dans le navigateur, sans aucun serveur.
-
-                                Les données sont **chiffrées AES-256** et stockées localement via l'API OPFS du navigateur, 
-                                ce qui les rend illisibles sans le mot de passe maître.
-
-                                Chaque utilisateur a son **compte protégé par mot de passe hashé** (PBKDF2), 
-                                peut créer des tâches avec un éditeur riche (Quill.js), et tout persiste entre les sessions.
-
-                                Le projet est **déployé gratuitement sur GitHub Pages**, zéro backend, zéro base de données distante.
+                                Conception et déploiement d'une application web de gestion de tâches sécurisée, 
+                                sans backend ni serveur.
+                                Authentification par mot de passe hashé (PBKDF2) 
+                                avec chiffrement AES-256 des données via l'API Web Crypto,
+                                stockage persistant côté client avec SQLite (sql.js) et OPFS.
                             </p>
                             <a href="./todolist/" target="_blank" class="showcase-btn">
                                 <span>Voir le projet</span>
