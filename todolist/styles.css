@@ -8,6 +8,8 @@ body {
     justify-content: center;
     align-items: center;
     color: #333;
+    min-height: 100vh;
+    max-width: 100vw;
 }
 
 .container {
@@ -43,7 +45,7 @@ header p {
 }
 
 .auth-box {
-    width: 48%;
+    width: fit-content;
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 8px;
@@ -118,6 +120,7 @@ textarea {
 /* Section des tâches */
 .tasks-container {
     background-color: #f9f9f9;
+    max-width: calc(100vw - 50px);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -271,8 +274,11 @@ textarea {
     font-size: 1.1rem;
 }
 
-@media screen and (max-width: 768px){
-    
+@media screen and (max-width: 850px){
+    .container{
+        width: 85%;   
+    }
+ 
     .auth-container{
         flex-direction: column;
         align-items: center;
