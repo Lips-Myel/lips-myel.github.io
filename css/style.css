@@ -290,11 +290,45 @@ body.dark-mode .social-icon {
 .toggle-icon {
     width: 24px;
     height: 24px;
+    flex-shrink: 0;
+    color: var(--white);
+}
+
+/* Logos et icône du thème : la bonne version est choisie en CSS,
+   donc rien ne change de taille ni ne clignote au chargement */
+.logo {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    transition: var(--transition);
+}
+
+.icon-moon,
+.logo-dark,
+body.dark-mode .icon-sun,
+body.dark-mode .logo-light {
+    display: none;
+}
+
+body.dark-mode .icon-moon,
+body.dark-mode .logo-dark {
+    display: block;
+}
+
+.footer-logo.logo-light,
+body.dark-mode .footer-logo.logo-dark {
+    display: inline-block;
+}
+
+body.dark-mode .footer-logo.logo-light {
+    display: none;
+}
+
+/* Icônes SVG (remplacent les emojis) : taille pilotée par font-size */
+.icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
 }
 
 /* Mobile Menu Toggle */
@@ -570,6 +604,8 @@ body.dark-mode .expertise-card {
     font-size: 4rem;
     margin-bottom: 1.5rem;
     display: block;
+    line-height: 1;
+    color: var(--primary);
 }
 
 .card-title {
@@ -1500,6 +1536,7 @@ body.dark-mode .detail-item {
     align-items: center;
     justify-content: center;
     font-size: 2rem;
+    color: var(--white);
     flex-shrink: 0;
     box-shadow: 0 5px 15px var(--shadow-color);
 }
@@ -1878,6 +1915,8 @@ body.dark-mode .value-card {
     font-size: 2.5rem;
     display: block;
     margin-bottom: 0.8rem;
+    line-height: 1;
+    color: var(--primary);
 }
 
 .value-card h4 {
@@ -1924,6 +1963,7 @@ body.dark-mode .value-card {
     font-size: 4rem;
     display: block;
     margin-bottom: 1rem;
+    line-height: 1;
 }
 
 .visual-content h3 {
@@ -1935,6 +1975,68 @@ body.dark-mode .value-card {
 .visual-content p {
     font-size: 1.2rem;
     opacity: 0.9;
+}
+
+.journey-tag .icon {
+    margin-right: 0.3rem;
+    vertical-align: -0.15em;
+}
+
+.intro-signature {
+    font-size: 1.8rem;
+    color: var(--primary);
+    opacity: 1;
+}
+
+/* Expériences - About Page (réutilise la timeline de l'accueil) */
+.step-company {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.step-company span {
+    font-weight: 400;
+    opacity: 0.75;
+}
+
+/* Diplômes - About Page */
+.about-diplomas {
+    padding: 6rem 0;
+    background: var(--gray-light);
+}
+
+body.dark-mode .about-diplomas {
+    background: var(--gray-dark);
+}
+
+.diplomas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.diploma-card {
+    padding: 2rem;
+}
+
+.diploma-card h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.diploma-card p {
+    opacity: 0.75;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .diplomas-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Availability Section - About Page */
@@ -2097,6 +2199,8 @@ body.dark-mode .skill-category {
 .category-icon {
     font-size: 3rem;
     margin-bottom: 1.5rem;
+    line-height: 1;
+    color: var(--primary);
 }
 
 .category-title {
@@ -2228,6 +2332,149 @@ body.dark-mode .footer-nav a {
 .footer-rights {
     opacity: 0.7;
     margin-top: 0.5rem;
+}
+
+.footer-legal {
+    margin-top: 0.5rem;
+}
+
+.footer-legal a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-legal a:hover {
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   ⚖️ MENTIONS LÉGALES
+   ======================================== */
+
+.legal-page {
+    padding: 6rem 0;
+}
+
+.legal-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.legal-block {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 25px;
+    border: 2px solid var(--gray-border);
+}
+
+body.dark-mode .legal-block {
+    background: var(--gray-dark);
+    border-color: #333;
+}
+
+.legal-block h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 1.2rem;
+}
+
+.legal-block h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 1.5rem 0 0.5rem;
+}
+
+.legal-block p,
+.legal-block li {
+    opacity: 0.9;
+    margin-bottom: 0.8rem;
+}
+
+.legal-block ul {
+    padding-left: 1.5rem;
+}
+
+.legal-block a {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.legal-update {
+    text-align: center;
+    opacity: 0.7;
+    font-size: 0.95rem;
+}
+
+
+/* ========================================
+   🕹️ KONAMI CODE
+   ======================================== */
+
+html.konami {
+    animation: rainbow 1.5s linear infinite;
+}
+
+html.konami .logo-img,
+html.konami .theme-toggle {
+    animation: konami-spin 1s ease-in-out infinite;
+}
+
+@keyframes rainbow {
+    from { filter: hue-rotate(0deg); }
+    to { filter: hue-rotate(360deg); }
+}
+
+@keyframes konami-spin {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(-12deg) scale(1.15); }
+}
+
+.konami-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 2rem;
+    transform: translateX(-50%);
+    z-index: 10000;
+    padding: 1rem 2rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--white);
+    font-family: 'Caveat', cursive;
+    font-size: 1.6rem;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 10px 40px var(--shadow-hover);
+    animation: konami-toast-in 0.4s ease-out;
+}
+
+@keyframes konami-toast-in {
+    from { opacity: 0; transform: translate(-50%, 20px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@media (max-width: 480px) {
+    .konami-toast {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.konami,
+    html.konami .logo-img,
+    html.konami .theme-toggle {
+        animation: none;
+        filter: hue-rotate(180deg);
+    }
 }
 
 

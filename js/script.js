@@ -1,56 +1,30 @@
 // ================================================
 // Theme Toggle - dark by default + system preference
 // ================================================
+// La classe initiale est posée par le script inline en haut du <body> ;
+// logos et icônes soleil/lune sont gérés en CSS, rien ne bouge au chargement.
 
 const themeToggle = document.getElementById('themeToggle');
 const body = document.body;
-const toggleIcon = document.querySelector('.toggle-icon');
-const logoImg = document.querySelector('.logo-img');
-const footerLogo = document.querySelector('.footer-logo');
-
-const LOGO_BLACK = '../img/lips-creation-black.png';
-const LOGO_WHITE = '../img/lips-creation-white.png';
-
-const icon_sun = '../img/sun.svg';
-const icon_moon = '../img/moon-stars.svg';
-
-function updateLogos(isDark) {
-  const src = isDark ? LOGO_WHITE : LOGO_BLACK;
-  if (logoImg) logoImg.src = src;
-  if (footerLogo) footerLogo.src = src;
-}
-
-function updateIcon(isDark) {
-  if (toggleIcon) toggleIcon.src = isDark ? icon_moon : icon_sun;
-}
 
 function applyTheme(isDark) {
-  if (isDark) {
-    body.classList.add('dark-mode');
-  } else {
-    body.classList.remove('dark-mode');
+  body.classList.toggle('dark-mode', isDark);
+  themeToggle.setAttribute('aria-label', isDark ? 'Passer en mode clair' : 'Passer en mode sombre');
+}
+
+function getSavedTheme() {
+  try {
+    return localStorage.getItem('theme');
+  } catch {
+    return null;
   }
-  updateLogos(isDark);
-  updateIcon(isDark);
 }
 
-// Priorité : localStorage > préférence système > dark par défaut
-const savedTheme = localStorage.getItem('theme');
-const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)');
+applyTheme(body.classList.contains('dark-mode'));
 
-let isDark;
-if (savedTheme) {
-  isDark = savedTheme === 'dark';
-} else {
-  // Pas de préférence sauvegardée → préférence système, sinon dark par défaut
-  isDark = prefersDark.matches === undefined ? true : prefersDark.matches;
-}
-
-applyTheme(isDark);
-
-// Écoute les changements de préférence système (seulement si pas de localStorage)
-prefersDark.addEventListener('change', (e) => {
-  if (!localStorage.getItem('theme')) {
+// Écoute les changements de préférence système (seulement si pas de choix sauvegardé)
+globalThis.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  if (!getSavedTheme()) {
     applyTheme(e.matches);
   }
 });
@@ -59,7 +33,11 @@ prefersDark.addEventListener('change', (e) => {
 themeToggle.addEventListener('click', () => {
   const nowDark = !body.classList.contains('dark-mode');
   applyTheme(nowDark);
-  localStorage.setItem('theme', nowDark ? 'dark' : 'light');
+  try {
+    localStorage.setItem('theme', nowDark ? 'dark' : 'light');
+  } catch {
+    // stockage indisponible (navigation privée) : le thème vaut pour la page en cours
+  }
   createRipple(themeToggle);
 });
 
@@ -280,18 +258,44 @@ style.textContent = `
 document.head.appendChild(style);
 
 // ================================================
-// Konami code easter egg
+// Konami code easter egg : ↑ ↑ ↓ ↓ ← → ← → B A
 // ================================================
 
-let konamiCode = [];
-const konamiSequence = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+const konamiSequence = ['arrowup', 'arrowup', 'arrowdown', 'arrowdown', 'arrowleft', 'arrowright', 'arrowleft', 'arrowright', 'b', 'a'];
+let konamiBuffer = [];
+let konamiTimeout;
+
+function launchKonami() {
+  const root = document.documentElement;
+  clearTimeout(konamiTimeout);
+  root.classList.remove('konami');
+  void root.offsetWidth; // relance l'animation si le code est retapé
+  root.classList.add('konami');
+
+  let toast = document.querySelector('.konami-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.className = 'konami-toast';
+    toast.setAttribute('role', 'status');
+    toast.textContent = '★ Cheat code activé : essai transformé ! ★';
+    body.appendChild(toast);
+  }
+
+  konamiTimeout = setTimeout(() => {
+    root.classList.remove('konami');
+    toast.remove();
+  }, 5000);
+}
 
 document.addEventListener('keydown', (e) => {
-  konamiCode.push(e.key);
-  if (konamiCode.length > konamiSequence.length) konamiCode.shift();
-  if (konamiCode.join(',') === konamiSequence.join(',')) {
-    document.body.style.animation = 'rainbow 2s infinite';
-    setTimeout(() => { document.body.style.animation = ''; }, 5000);
+  // on ne détourne pas la saisie dans le formulaire de contact
+  if (e.target.closest('input, textarea, select, [contenteditable]')) return;
+
+  konamiBuffer.push((e.key || '').toLowerCase());
+  if (konamiBuffer.length > konamiSequence.length) konamiBuffer.shift();
+  if (konamiBuffer.join(',') === konamiSequence.join(',')) {
+    konamiBuffer = [];
+    launchKonami();
   }
 });
 
