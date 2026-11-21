@@ -446,13 +446,45 @@
                     <article class="recent-project-card">
                         <div class="card-shine"></div>
                         <div class="project-header">
-                            <h4 class="project-name">CHŒUR MOSAÏQUE MUSICALE MALOUINE</h4>
-                            <div class="project-tech signature">PHP • SYMFONY • TWIG</div>
+                            <h4 class="project-name">MADEMOISELLE TRÉSORS</h4>
+                            <div class="project-tech signature">WORDPRESS • DIVI 5 • API REST • MAKE.COM</div>
                         </div>
                         <p class="project-desc">
-                            Site de gestion pour association chorale développé avec Symfony.
-                            Gestion complète des membres, concerts et œuvres musicales avec base MySQL,
-                            authentification sécurisée et architecture orientée objet utilisant Doctrine ORM et Webpack Encore.
+                            Plateforme de contenu premium 18+. Plugins WordPress from scratch : vérification d'âge via l'API Didit
+                            (webhooks signés HMAC-SHA256, anti-rejeu, idempotence, aucune donnée d'identité stockée),
+                            API REST custom alimentée par Make.com et import de médias par ZIP.
+                        </p>
+                        <a href="projets.html" class="project-btn">
+                            <span>Voir Projet</span>
+                            <span class="btn-arrow">→</span>
+                        </a>
+                    </article>
+
+                    <article class="recent-project-card">
+                        <div class="card-shine"></div>
+                        <div class="project-header">
+                            <h4 class="project-name">LADY PINEAPPLE</h4>
+                            <div class="project-tech signature">WORDPRESS • PHP • PYTHON • CANVAS</div>
+                        </div>
+                        <p class="project-desc">
+                            Migration automatisée Joomla → WordPress (811 pages, ETL Python) et six plugins sur-mesure :
+                            vérification d'âge Didit, classement à coefficient chiffré AES-256, roue de la fortune en Canvas,
+                            catalogue vidéo et galeries privées.
+                        </p>
+                        <a href="projets.html" class="project-btn">
+                            <span>Voir Projet</span>
+                            <span class="btn-arrow">→</span>
+                        </a>
+                    </article>
+
+                    <article class="recent-project-card">
+                        <div class="card-shine"></div>
+                        <div class="project-header">
+                            <h4 class="project-name">CHŒUR MOSAÏQUE MUSICALE MALOUINE</h4>
+                            <div class="project-tech signature">PHP • SYMFONY • TWIG • DOCTRINE</div>
+                        </div>
+                        <p class="project-desc">
+                            Site de gestion pour association chorale en Symfony : vitrine publique et espace membre authentifié (composant Security, mots de passe hachés), modèle MySQL géré par Doctrine ORM, assets compilés avec Webpack Encore.
                         </p>
                         <a href="https://choeurmmm.fr/" target="_blank" class="project-btn">
                             <span>Voir Projet</span>
@@ -464,14 +496,10 @@
                         <div class="card-shine"></div>
                         <div class="project-header">
                             <h4 class="project-name">TO DO LIST</h4>
-                            <div class="project-tech signature">SQL.js • HTML • CSS</div>
+                            <div class="project-tech signature">SQLite WASM • WEB CRYPTO • OPFS</div>
                         </div>
                         <p class="project-desc">
-                            Conception et déploiement d'une application web de gestion de tâches sécurisée, 
-                            sans backend ni serveur.
-                            Authentification par mot de passe hashé (PBKDF2) 
-                            avec chiffrement AES-256 des données via l'API Web Crypto,
-                            stockage persistant côté client avec SQLite (sql.js) et OPFS.
+                            Gestionnaire de tâches sans serveur : base SQLite en WebAssembly chiffrée en AES-256-GCM (clé dérivée par PBKDF2, 100 000 itérations) et persistée dans l'Origin Private File System. Comptes multi-utilisateurs avec sel aléatoire.
                         </p>
                         <a href="./todolist/" target="_blank" class="project-btn">
                             <span>Voir Projet</span>
@@ -483,12 +511,10 @@
                         <div class="card-shine"></div>
                         <div class="project-header">
                             <h4 class="project-name">AU PAYS DES MERVEILLES BY UBEU</h4>
-                            <div class="project-tech signature">PRESTASHOP</div>
+                            <div class="project-tech signature">PRESTASHOP • PHP • MYSQL</div>
                         </div>
                         <p class="project-desc">
-                            Refonte complète d'une boutique e-commerce sur PrestaShop.
-                            Configuration et installation en environnement local avant livraison client,
-                            personnalisation avancée avec CSS externe pour adapter le design aux besoins métier.
+                            Refonte complète d'une boutique PrestaShop : installation et recette en environnement local avant mise en production, personnalisation du thème par CSS externe, configuration du catalogue, du compte client et du tunnel de commande.
                         </p>
                         <a href="https://ubeu.fr/" target="_blank" class="project-btn">
                             <span>Voir Projet</span>
@@ -500,12 +526,10 @@
                         <div class="card-shine"></div>
                         <div class="project-header">
                             <h4 class="project-name">CARNET D'ADRESSES</h4>
-                            <div class="project-tech signature">HTML • CSS • JS</div>
+                            <div class="project-tech signature">JAVASCRIPT • HTML • CSS</div>
                         </div>
                         <p class="project-desc">
-                            Application de gestion de contacts en JavaScript vanilla avec stockage LocalStorage.
-                            Interface interactive permettant l'ajout, modification et suppression de contacts avec système de modal,
-                            export JSON et validation de formulaires.
+                            Gestion de contacts en JavaScript vanilla : CRUD persistant en localStorage, modales natives &lt;dialog&gt;, rendu sûr via textContent et export JSON par Blob API.
                         </p>
                         <a href="./carnet_d_adresse/" class="project-btn">
                             <span>Voir Projet</span>
@@ -517,12 +541,10 @@
                         <div class="card-shine"></div>
                         <div class="project-header">
                             <h4 class="project-name">POKÉDEX</h4>
-                            <div class="project-tech signature">HTML • CSS • JS</div>
+                            <div class="project-tech signature">JAVASCRIPT • FETCH API • POKEAPI</div>
                         </div>
                         <p class="project-desc">
-                            Pokédex interactif des 151 Pokémon originaux consommant l'API PokeAPI.
-                            Système de capture avec probabilités, gestion des versions shiny,
-                            persistance des données avec LocalStorage et navigation dynamique entre fiches détaillées.
+                            Pokédex des 151 Pokémon consommant l'API REST PokeAPI (fetch, async/await) : capture probabiliste, versions shiny, état persisté en localStorage et navigation pilotée par l'URL (URLSearchParams).
                         </p>
                         <a href="./pokedex/" class="project-btn">
                             <span>Voir Projet</span>

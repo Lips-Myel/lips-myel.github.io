@@ -3046,3 +3046,116 @@ html.konami .theme-toggle {
         font-size: 2rem;
     }
 }
+
+
+/* ========================================
+   ★ CARTES PROJETS DÉTAILLÉES (badges, chips, détails techniques)
+   ======================================== */
+
+.showcase-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+}
+
+.showcase-chips li {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 8px;
+    background: var(--gray-light);
+    border: 1px solid var(--gray-border);
+}
+
+body.dark-mode .showcase-chips li {
+    background: #222;
+    border-color: #333;
+}
+
+.showcase-details {
+    border-top: 1px solid var(--gray-border);
+    padding-top: 1rem;
+}
+
+body.dark-mode .showcase-details {
+    border-color: #333;
+}
+
+.showcase-details summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--secondary);
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.showcase-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.showcase-details summary::before {
+    content: "+";
+    display: inline-grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1.5px solid currentColor;
+    font-size: 0.95rem;
+    line-height: 1;
+    transition: var(--transition-fast);
+}
+
+.showcase-details[open] summary::before {
+    content: "−";
+}
+
+.showcase-details summary:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+    border-radius: 6px;
+}
+
+.tech-list {
+    list-style: none;
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.tech-list li {
+    position: relative;
+    padding-left: 1.4rem;
+    opacity: 0.9;
+}
+
+.tech-list li::before {
+    content: "★";
+    position: absolute;
+    left: 0;
+    top: 0.05em;
+    font-size: 0.8rem;
+    color: var(--primary);
+}
+
+.tech-list strong {
+    color: var(--primary);
+}
+
+.tech-list code,
+.showcase-description code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85em;
+    padding: 1px 6px;
+    border-radius: 5px;
+    background: rgba(238, 38, 70, 0.08);
+}
+
+.showcase-card--featured {
+    align-items: start;
+}
