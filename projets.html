@@ -10,7 +10,7 @@
     <title>Projets Web Full-Stack | Java Spring PHP Symfony React Angular | Lips Création</title>
     
     <!-- Meta description optimisée -->
-    <meta name="description" content="Portfolio de projets Full-Stack : Java Spring, PHP Symfony, Node.js, React, Angular, WordPress sur-mesure (plugins, API REST, webhooks). Sites web, applications e-commerce, API REST, bases SQL/NoSQL. Rennes, Bretagne.">
+    <meta name="description" content="Portfolio de projets Full-Stack : Java Spring, PHP Symfony, Node.js, React, Angular. Sites web, applications e-commerce, API REST, bases SQL/NoSQL. Rennes, Bretagne.">
     
     <!-- Favicons classiques -->
     <link rel="icon" href="favicon.ico" sizes="any">
@@ -32,7 +32,7 @@
     <link rel="canonical" href="https://lips-creation.dev/projets.html">
     
     <!-- Mots-clés optimisés -->
-    <meta name="keywords" content="portfolio développeur, plugin WordPress sur-mesure, API REST WordPress, webhooks HMAC, vérification d'âge Didit, Make.com, migration Joomla WordPress, projets Java Spring, projets PHP Symfony, projets Node.js, projets React, projets Angular, e-commerce PrestaShop, applications web, API REST, SQL NoSQL, développeur Rennes, Lips Création, portfolio full-stack, projets Bretagne">
+    <meta name="keywords" content="portfolio développeur, projets Java Spring, projets PHP Symfony, projets Node.js, projets React, projets Angular, e-commerce PrestaShop, applications web, API REST, SQL NoSQL, développeur Rennes, Lips Création, portfolio full-stack, projets Bretagne">
     
     <!-- Auteur et copyright -->
     <meta name="author" content="Lips Création - Développeur Full-Stack">
@@ -121,10 +121,6 @@
         {
           "@type": "Thing",
           "name": "Développement Angular"
-        },
-        {
-          "@type": "Thing",
-          "name": "Développement de plugins WordPress"
         },
         {
           "@type": "Thing",
@@ -273,102 +269,6 @@
                 <section class="projects-showcase">
             <div class="container">
                 <div class="projects-showcase-grid">
-                    <!-- ===== Mademoiselle Trésors ===== -->
-                    <article class="showcase-card showcase-card--featured">
-                        <div class="showcase-preview">
-                            <div class="img-container">
-                                <img src="./img/Macbook-Air-mademoiselle-tresors.com.webp" alt="Mademoiselle Trésors — page d'accueil" loading="lazy">
-                                <div class="img-overlay">
-                                    <a href="https://mademoiselle-tresors.com/" target="_blank" rel="noopener" class="preview-link">
-                                        <span class="link-text">Visiter le site (18+)</span>
-                                        <span class="link-icon">↗</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="showcase-info">
-                            <h3 class="showcase-title">MADEMOISELLE TRÉSORS</h3>
-                            <div class="showcase-tech signature">WORDPRESS • DIVI 5 • WOOCOMMERCE • PHP • API REST • MAKE.COM</div>
-                            <p class="showcase-description">
-                                Plateforme de contenu premium réservée aux adultes : catalogue vidéo, boutique, réservation et paiements partenaires.
-                                Thème enfant Divi 5 sur-mesure et plugins WordPress développés from scratch, dont une
-                                <strong>vérification d'âge réglementaire via l'API Didit</strong> et une <strong>API REST alimentée par Make.com</strong>.
-                            </p>
-                            <ul class="showcase-chips" aria-label="Points techniques clés">
-                                <li>API Didit v3</li>
-                                <li>Webhooks HMAC-SHA256</li>
-                                <li>API REST custom</li>
-                                <li>Automatisation Make.com</li>
-                                <li>WP-CLI</li>
-                                <li>Privacy by design</li>
-                            </ul>
-                            <details class="showcase-details">
-                                <summary>Détails techniques</summary>
-                                <ul class="tech-list">
-                                    <li><strong>Vérification d'âge (Didit API v3).</strong> Sessions créées côté serveur, clé API jamais exposée au navigateur (surcharge possible par constantes <code>wp-config.php</code>). Le statut renvoyé dans l'URL n'est jamais cru : la décision est relue via l'API et rattachée au visiteur (<code>vendor_data</code>).</li>
-                                    <li><strong>Webhooks signés.</strong> Vérification HMAC-SHA256 sur trois schémas (corps brut, JSON canonique trié, signature simple avec relecture API), comparaison en temps constant (<code>hash_equals</code>), fenêtre anti-rejeu de 300 s, idempotence atomique via index <code>UNIQUE</code>, isolation sandbox / production.</li>
-                                    <li><strong>Sécurité &amp; RGPD.</strong> Identifiant visiteur en cookie signé (HttpOnly, Secure, SameSite), démarrage en POST + nonce, limitation de débit par IP (chaque session est facturée), pages protégées exclues de tous les caches (WP Rocket, LiteSpeed, CDN). Aucune donnée d'identité stockée : uniquement un marqueur « majeur vérifié ».</li>
-                                    <li><strong>API REST <code>mt/v1/videos</code>.</strong> Lecture publique mise en cache (transients purgés à chaque modification), écriture sécurisée par Application Password + capacité pour l'automatisation Make.com : upsert idempotent par identifiant externe, import en lot, sideload d'images sans doublon.</li>
-                                    <li><strong>Import de médias par ZIP.</strong> Parsing du fichier <code>.txt</code> (titre, description, #tags, liens), teaser et photos hébergés, vidéo longue jamais copiée sur le serveur ; repli PharData si l'extension ZipArchive est absente ; commande WP-CLI d'import en masse.</li>
-                                    <li><strong>Thème enfant Divi 5.</strong> Design system tokenisé (variables CSS), habillage WooCommerce et BookingPress, shortcodes métier (agenda avec purge automatique, bandeaux d'annonce datés, collaborations), modale de paiement vers une passerelle partenaire, popup événementielle avec compte à rebours.</li>
-                                </ul>
-                            </details>
-                            <a href="https://mademoiselle-tresors.com/" target="_blank" rel="noopener" class="showcase-btn">
-                                <span>Voir le projet</span>
-                                <span class="btn-icon">★</span>
-                            </a>
-                        </div>
-                        <div class="card-shine"></div>
-                    </article>
-
-                    <!-- ===== Lady Pineapple ===== -->
-                    <article class="showcase-card showcase-card--featured">
-                        <div class="showcase-preview">
-                            <div class="img-container">
-                                <img src="./img/Macbook-Air-lady-pineapple.com.webp" alt="Lady Pineapple — page d'accueil" loading="lazy">
-                                <div class="img-overlay">
-                                    <a href="https://lady-pineapple.com/" target="_blank" rel="noopener" class="preview-link">
-                                        <span class="link-text">Visiter le site (18+)</span>
-                                        <span class="link-icon">↗</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="showcase-info">
-                            <h3 class="showcase-title">LADY PINEAPPLE</h3>
-                            <div class="showcase-tech signature">WORDPRESS • DIVI 5 • PHP • PYTHON • MYSQL • CANVAS</div>
-                            <p class="showcase-description">
-                                Migration complète d'un site Joomla de plus de 800 pages vers WordPress, refonte de l'identité visuelle
-                                et suite de six plugins sur-mesure : <strong>vérification d'âge Didit</strong>, classement à
-                                <strong>coefficient chiffré AES-256</strong>, roue de la fortune en Canvas, catalogue vidéo, galeries privées.
-                            </p>
-                            <ul class="showcase-chips" aria-label="Points techniques clés">
-                                <li>Migration Joomla → WP</li>
-                                <li>Python ETL</li>
-                                <li>AES-256-CBC</li>
-                                <li>Tables SQL custom</li>
-                                <li>Canvas 2D</li>
-                                <li>API Didit v3</li>
-                            </ul>
-                            <details class="showcase-details">
-                                <summary>Détails techniques</summary>
-                                <ul class="tech-list">
-                                    <li><strong>Migration automatisée Joomla → WordPress.</strong> Scripts Python avec parseur de dump SQL écrit à la main (découpage des <code>INSERT</code>, échappements, UTF-8), nettoyage HTML (BeautifulSoup / lxml), centralisation du CSS, puis génération du SQL ou création idempotente via l'API Joomla en PHP. <strong>811 pages</strong> migrées sans erreur.</li>
-                                    <li><strong>Classement anonyme (plugin lp-ranking).</strong> Tables dédiées créées par <code>dbDelta</code> (index <code>UNIQUE</code> et de tri), requêtes préparées. Score public = points × coefficient hebdomadaire secret tiré par <code>random_int</code>, <strong>chiffré en AES-256-CBC</strong> (IV aléatoire, clé dérivée des salts WordPress), rotation sur la semaine ISO + cron de secours, journal d'audit privé. Les points réels ne sont jamais exposés.</li>
-                                    <li><strong>Vérification d'âge à deux niveaux.</strong> Auto-déclaration 18+ sur tout le site, puis vérification réelle via l'API Didit v3 sur le Studio et les pages vidéo (webhooks signés HMAC, idempotence, aucune donnée d'identité conservée).</li>
-                                    <li><strong>Roue de la fortune (Canvas 2D).</strong> Tirage pondéré, rendu HiDPI (<code>devicePixelRatio</code>), redimensionnement par <code>ResizeObserver</code>, animation <code>requestAnimationFrame</code>, délai entre deux tirages en <code>localStorage</code>, plusieurs roues configurables en back-office.</li>
-                                    <li><strong>Back-office sur-mesure sans WooCommerce.</strong> Boutique de prestations, agenda des dates, catalogue vidéo par dépôt de ZIP (Custom Post Type), galeries privées protégées par mot de passe (cookie haché, <code>hash_equals</code>).</li>
-                                    <li><strong>Front &amp; identité.</strong> Thème enfant Divi 5 piloté par une configuration centrale, fond de particules en Canvas, header translucide avec flou, modale de paiement partenaire, bannières publicitaires HTML/SVG aux formats IAB (300×250, 300×600, 728×90, 970×250).</li>
-                                </ul>
-                            </details>
-                            <a href="https://lady-pineapple.com/" target="_blank" rel="noopener" class="showcase-btn">
-                                <span>Voir le projet</span>
-                                <span class="btn-icon">★</span>
-                            </a>
-                        </div>
-                        <div class="card-shine"></div>
-                    </article>
-
                     <article class="showcase-card showcase-card--featured">
                         <div class="showcase-preview">
                             <div class="img-container">
